@@ -1,0 +1,15 @@
+<TextureAtlas imagePath="texiao.png">
+  <SubTexture name="img_aj2o3_gjtx" x="0" y="0" width="307" height="225"/>
+  <SubTexture name="img_aj1o3_gjtx" x="917" y="224" width="91" height="180"/>
+  <SubTexture name="img_aj2o2_gjtx" x="309" y="0" width="244" height="241"/>
+  <SubTexture name="img_tx_atkFC" x="358" y="243" width="31" height="16"/>
+  <SubTexture name="img_aj1o2_gjtx" x="813" y="224" width="102" height="180"/>
+  <SubTexture name="img_aj2o1_gjtx" x="820" y="0" width="184" height="222"/>
+  <SubTexture name="img_aj2o6_gjtx" x="0" y="227" width="105" height="164"/>
+  <SubTexture name="img_aj1o1_gjtx" x="196" y="227" width="93" height="163"/>
+  <SubTexture name="img_aj1o6_gjtx" x="291" y="243" width="65" height="160" frameX="0" frameWidth="66" frameY="0" frameHeight="160"/>
+  <SubTexture name="img_aj2o5_gjtx" x="555" y="222" width="178" height="193"/>
+  <SubTexture name="img_aj1o5_gjtx" x="735" y="222" width="76" height="175"/>
+  <SubTexture name="img_aj2o4_gjtx" x="555" y="0" width="263" height="220"/>
+  <SubTexture name="img_aj1o4_gjtx" x="107" y="227" width="87" height="180" frameX="0" frameWidth="88" frameY="0" frameHeight="180"/>
+</TextureAtlas>

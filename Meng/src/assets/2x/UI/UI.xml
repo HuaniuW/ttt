@@ -1,0 +1,11 @@
+<TextureAtlas imagePath="UI.png">
+  <SubTexture name="img_UI_btnFX" x="0" y="0" width="800" height="500" frameX="0" frameWidth="801" frameY="0" frameHeight="501"/>
+  <SubTexture name="img_UI_btnC" x="802" y="192" width="171" height="190" frameX="0" frameWidth="171" frameY="0" frameHeight="191"/>
+  <SubTexture name="img_UI_btnA" x="802" y="384" width="171" height="190" frameX="0" frameWidth="171" frameY="0" frameHeight="191"/>
+  <SubTexture name="img_UI_btnB" x="802" y="0" width="171" height="190" frameX="0" frameWidth="171" frameY="0" frameHeight="191"/>
+  <SubTexture name="s9_UI_xue3" x="975" y="0" width="12" height="60"/>
+  <SubTexture name="s9_UI_tilik" x="1003" y="0" width="12" height="32"/>
+  <SubTexture name="s9_UI_xue1" x="0" y="502" width="715" height="75" frameX="0" frameWidth="716" frameY="0" frameHeight="76"/>
+  <SubTexture name="s9_UI_xue2" x="989" y="0" width="12" height="60"/>
+  <SubTexture name="s9_UI_d2" x="0" y="579" width="710" height="40"/>
+</TextureAtlas>

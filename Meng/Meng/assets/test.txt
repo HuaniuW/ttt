@@ -1,0 +1,17 @@
+{
+		"gongjili":100,
+		"fangyuli":60,
+		"yingzhi":100,
+		"minSpeed":120,
+		"maxSpeed":520,
+		"gongjizhaoshiArr":[{"zs":"atk1","vx":500,"vy":0,"cy":0,"texiao":"mc_a1_gjtx","atkjuli":150,"txpy":0,"gjkpy":50,"gjl":50},
+		{"zs":"atk2","vx":500,"vy":0,"cy":0,"texiao":"mc_a2_gjtx","atkjuli":160,"txpy":0,"gjkpy":50,"gjl":50},
+		{"zs":"atk3","vx":800,"vy":0,"cy":0,"texiao":"mc_a3_gjtx","atkjuli":180,"txpy":10,"gjkpy":80,"gjl":100}],
+		"jumpPow":990,
+		"shengming":450,
+		"jinengArr":[{"a":1},{"b":2}],
+		"gjNum":0,
+		"alertDistance":200,
+		"beHitAcArr":["beHit","beHit2"],
+		"JsonObj":100
+		}

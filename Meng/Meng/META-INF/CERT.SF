@@ -1,0 +1,166 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: 6shX7vhkw8yJ/10SUoLPzl72QeQ=
+
+Name: res/layout/ssl_certificate_warning.xml
+SHA1-Digest: 8DVyBWZVc0s4nvd4mtPQoPsnxiY=
+
+Name: assets/META-INF/AIR/application.xml
+SHA1-Digest: 8Z7s4+Q9JtxAA2Cdefr2wgY6jCk=
+
+Name: assets/Meng.swf
+SHA1-Digest: 8a8QCGF2maxhJuWsYx+6HwhX8Js=
+
+Name: res/drawable-xxxhdpi-v4/icon.png
+SHA1-Digest: aokjNwfrEisV4HNuY3XIvP8dB+U=
+
+Name: assets/assets/1x/.DS_Store
+SHA1-Digest: //gb9gk4R+jYwOtR44VXeORC8Qs=
+
+Name: assets/assets/1x/UI/UI.png
+SHA1-Digest: NyvsJDXUThtVWeUs3LDALo9al+k=
+
+Name: assets/assets/1x/rolejc2/rolejc2.png
+SHA1-Digest: /zaalWXBkOppN6QG6x2hULhXHyk=
+
+Name: lib/armeabi-v7a/libstagefright_honeycomb.so
+SHA1-Digest: ZeXcgINw6xhhPkyYKZ7NQyz6esU=
+
+Name: res/raw/rgba8888
+SHA1-Digest: Zl1hFYFfIU3ykjjlwvkAPiOpbjU=
+
+Name: res/raw/debuginfo
+SHA1-Digest: cVd++6Ne6U1BlNgU31/w7Tqbyd4=
+
+Name: lib/armeabi-v7a/libCore.so
+SHA1-Digest: Swxp4vlQcLSvR92NoB9b0wConBQ=
+
+Name: assets/sounds/atk.mp3
+SHA1-Digest: xrJIaX98Tz6enoIqGNcfob+WFTI=
+
+Name: assets/assets/1x/guijian/guijian.png
+SHA1-Digest: km1ggAATxdkotb1ZGnOhXhy0nZ4=
+
+Name: res/layout/expandable_multiple_chooser_row.xml
+SHA1-Digest: +NgZVdn4VOVpbHlvL/Ps+wfqQGc=
+
+Name: assets/sounds/beHit.mp3
+SHA1-Digest: zKWGtBQdxUx0Lj6Ep1ARBAFLF8E=
+
+Name: assets/test.txt
+SHA1-Digest: v5ADxdLxYXpaAcL+/1+MIiFYRJ4=
+
+Name: assets/assets/1x/guijian/guijian.bytes
+SHA1-Digest: Ra+Z++ZgMdMGUUApOgLzM9Bl5wE=
+
+Name: res/drawable-hdpi-v4/icon.png
+SHA1-Digest: EWsBjZQWLOMQAZfss00oPydcxTA=
+
+Name: res/drawable-xhdpi-v4/icon.png
+SHA1-Digest: FT5WOc9dJSquFlwoh5DVvmPcUWg=
+
+Name: res/raw/icon.jpg
+SHA1-Digest: N33/mzf/cJSbRaLuyvAra7+g/5k=
+
+Name: assets/adobeair.vch
+SHA1-Digest: MblBEBQnGaLSFWzn5IhGgLIWhCo=
+
+Name: res/layout/main.xml
+SHA1-Digest: VU8PoI22Iz9426AEvoKjF/wRaD8=
+
+Name: assets/assets/2x/rolejc2/rolejc2.xml
+SHA1-Digest: wNa8BJCiWdIRpOedvMT2tcFPbGI=
+
+Name: assets/assets/1x/UI/UI.bytes
+SHA1-Digest: CI4lfEa0QW3Hk6x2b6D+9KEkuR0=
+
+Name: assets/assets/2x/UI/UI.bytes
+SHA1-Digest: oaCOMSc48K4ZEngVrpieakGfmwc=
+
+Name: lib/armeabi-v7a/libstlport_shared.so
+SHA1-Digest: 92uAwTKMAKfFUfRyhaYNTdr/gIQ=
+
+Name: assets/guai1.txt
+SHA1-Digest: 606OliqYh1elGQpw35YY4ucPYA0=
+
+Name: lib/armeabi-v7a/libysshared.so
+SHA1-Digest: dzi1N0pFyMOAaMKvPv6ABsC9JrQ=
+
+Name: res/raw/startga.html
+SHA1-Digest: vtbLpFCE/puG1tIThIFDVjSuAWM=
+
+Name: res/drawable-mdpi-v4/icon.png
+SHA1-Digest: 74Gdpbo/bKDQRnILPtqb5qHoiV4=
+
+Name: resources.arsc
+SHA1-Digest: lJ7rrfe74KXxq/iapuRUnbS143U=
+
+Name: assets/assets/1x/rolejc2/rolejc2.bytes
+SHA1-Digest: Ii9YrJOC+IQJoyK/OPh7U8orrgw=
+
+Name: assets/assets/2x/guijian/guijian.xml
+SHA1-Digest: R0TaEVjTPhspBYLY6jLqkctir2E=
+
+Name: assets/assets/2x/UI/UI.png
+SHA1-Digest: 6cnZZWaKEI70vY5QSBmLGuiuI8s=
+
+Name: AndroidManifest.xml
+SHA1-Digest: 5DQPwHBIuqEcoBGRKpHX1gMDrmU=
+
+Name: assets/assets/2x/rolejc2/rolejc2.bytes
+SHA1-Digest: t3tzdFtfBIUhuA4tXJVYHYK/krQ=
+
+Name: assets/assets/1x/UI/UI.xml
+SHA1-Digest: Jc4ZIr5yuo3+dwUq2sZmZC0W5eg=
+
+Name: res/layout/multiple_file_selection_panel.xml
+SHA1-Digest: YkITCA1eKC3sM4jPSDoj0o/d1WE=
+
+Name: assets/assets/2x/guijian/guijian.bytes
+SHA1-Digest: 7fiX7QtmH8ZLsgbuHD+6OoDkOrU=
+
+Name: assets/assets/2x/UI/UI.xml
+SHA1-Digest: R34/Qdmuk8LuEsrXBw2xirS88SQ=
+
+Name: assets/assets/2x/guijian/guijian.png
+SHA1-Digest: zPsB6ZHALK3Vk9BLqCPj1Qpd+Wg=
+
+Name: res/raw/adobelogo.gif
+SHA1-Digest: C230O0R3bbZIa6/Fr6jyvOCeYw0=
+
+Name: assets/assets/2x/rolejc2/rolejc2.png
+SHA1-Digest: CyC0Me538ffLzIH0R8JJI+60Pco=
+
+Name: classes.dex
+SHA1-Digest: mI3rwtZUwe6wG4pUDeNulHpctDg=
+
+Name: res/drawable-hdpi-v4/home.png
+SHA1-Digest: HkJnTno/PqkFJZGUU+0omAzwiz0=
+
+Name: assets/assets/1x/rolejc2/rolejc2.xml
+SHA1-Digest: 1BT0E71ab7wa0aVLJ166F156rDQ=
+
+Name: res/drawable-xhdpi-v4/ouya_icon.png
+SHA1-Digest: wGVT+vPIj8/r3kt/gl6Nt3b5zLk=
+
+Name: assets/assets/1x/guijian/guijian.xml
+SHA1-Digest: iKMximItJ4etbt9NGz3W7JYYhb4=
+
+Name: res/drawable/air_72px_mobile_eula.png
+SHA1-Digest: Gzzu9+Li3z2Rd919f2/gV1o5tIs=
+
+Name: lib/armeabi-v7a/libstagefright_froyo.so
+SHA1-Digest: FkBTDj9QFTsvDw88Uw1iiAX68j8=
+
+Name: res/drawable-xxhdpi-v4/icon.png
+SHA1-Digest: SyeNqv8BXtW0vpTuuv9UzFh+8uw=
+
+Name: res/layout/expandable_chooser_row.xml
+SHA1-Digest: dApNLs86drjUdk/MG29/3ZibQzg=
+
+Name: res/drawable-ldpi-v4/icon.png
+SHA1-Digest: wB6VmNSjY+4b9WcEzjiHyauZdOo=
+
+Name: res/drawable/mp_warning_32x32_n.png
+SHA1-Digest: AYeAlZLgIg2apaASwxgKglh876U=
+

@@ -1,0 +1,15 @@
+{
+		"gongjili":80,
+		"fangyuli":40,
+		"yingzhi":100,
+		"minSpeed":160,
+		"maxSpeed":360,
+		"gongjizhaoshiArr":[{"zs":"atk1","vx":500,"vy":0,"cy":800,"texiao":"mc_a1_gjtx","atkjuli":230,"txpy":40,"gjkpy":50,"gjl":300}],
+		"jumpPow":990,
+		"shengming":450,
+		"jinengArr":[],
+		"gjNum":0,
+		"alertDistance":300,
+		"beHitAcArr":["beHit","beHit2"],
+		"JsonObj":100
+		}
