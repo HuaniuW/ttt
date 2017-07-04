@@ -4,6 +4,7 @@ package gameEvent
 	
 	public class GameEvent extends Event
 	{
+		static public const THELOADINGPAGE:String = "theLoadingPage";
 		static public const LODINGOVER:String = "loadingOver";
 		static public const GAMESTART:String = "gameStart";
 		
