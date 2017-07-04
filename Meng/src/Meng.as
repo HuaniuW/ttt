@@ -16,6 +16,7 @@ package
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.frameRate = 60;
+			stage.color =  0xcccccc;//0x9CD6D7;
 			Starling.multitouchEnabled = true;
 			initStarling(Main,1500,true);
 		}
