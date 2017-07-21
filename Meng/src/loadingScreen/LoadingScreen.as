@@ -1,21 +1,13 @@
 package loadingScreen
 {
 	import com.greensock.TweenLite;
-	
 	import flash.filesystem.File;
-	
 	import controls.GameManager;
-	
-	import feathers.display.Scale9Image;
-	
 	import gameEvent.GameEvent;
-	
 	import getAssets.GetAsset;
-	
 	import lzm.starling.STLConstant;
 	import lzm.starling.swf.display.SwfScale9Image;
 	import lzm.starling.swf.display.SwfSprite;
-	
 	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -91,11 +83,11 @@ package loadingScreen
 		private function loadingAssetsOver(ratio:Number):void
 		{
 			if(ratio == 1){
-				TweenLite.to(logoImage,1,{"alpha":0,"onComplete":logeHide});
+				TweenLite.to(logoImage,1,{"alpha":0,"onComplete":logoHide});
 			}
 		}		
 		
-		private function logeHide():void{
+		private function logoHide():void{
 			logoImage.removeFromParent();
 			showLoadPage();
 		}
@@ -144,8 +136,11 @@ package loadingScreen
 			view(bgImgClass,bgImgName);
 			container.addChild(this);
 			if(!textfield)textfield = new TextField(100,100,"","黑体",38,0x382B2B);
-			textfield.x = _sc.x+412;
-			textfield.y = _sc.y+358;
+			if(_sc){
+				textfield.x = _sc.x+412;
+				textfield.y = _sc.y+358;	
+			}
+			
 			addChild(textfield);
 			_screenNameEvent = screenNameEvent;
 			var file:File;
@@ -165,11 +160,11 @@ package loadingScreen
 		private function loadFunc(ratio:Number):void
 		{
 			textfield.text = "" + int(ratio*100)+"%";
-			_tiao.width  = int(ratio*100)/100*_loadingBar.width-5;
+			if(_tiao)_tiao.width  = int(ratio*100)/100*_loadingBar.width-5;
 			if(ratio == 1)
 			{
-//				this.removeSelf();
-//				GameManager.getInstance().dispatchEvent(new GameEvent(_screenNameEvent));
+				this.removeSelf();
+				GameManager.getInstance().dispatchEvent(new GameEvent(_screenNameEvent));
 			}
 		}
 		

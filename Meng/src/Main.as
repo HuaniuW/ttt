@@ -24,7 +24,8 @@ package
 			trace(">萌萌");
 			//note5 2560×1440
 			addEvent();
-			LoadingScreen.getInstance().loadLoadingPage(this,["loadingPage"],GameEvent.THELOADINGPAGE,LogoAssets,"GameLogo");
+//			LoadingScreen.getInstance().loadLoadingPage(this,["loadingPage"],GameEvent.THELOADINGPAGE,LogoAssets,"GameLogo");
+			LoadingScreen.getInstance().show(this,["UI","rolejc2","texiao"],GameEvent.LODINGOVER);
 		}
 		
 		

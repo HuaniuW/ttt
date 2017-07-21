@@ -1,7 +1,7 @@
 <TextureAtlas imagePath="loadingPage.png">
-  <SubTexture name="img_loadingPage_zi" x="0" y="53" width="183" height="42"/>
-  <SubTexture name="img_loadingPage_tp" x="708" y="0" width="292" height="371" frameX="-2" frameWidth="294" frameY="0" frameHeight="372"/>
   <SubTexture name="img_loadingPage_kuang" x="0" y="0" width="706" height="51"/>
+  <SubTexture name="img_loadingPage_tp" x="708" y="0" width="292" height="371" frameX="-2" frameWidth="294" frameY="0" frameHeight="372"/>
+  <SubTexture name="img_loadingPage_zi" x="0" y="53" width="183" height="42"/>
   <SubTexture name="s9_loadingPage_tiao" x="1002" y="0" width="6" height="45"/>
   <SubTexture name="s9_loadingPage_bg" x="185" y="53" width="40" height="40"/>
 </TextureAtlas>
