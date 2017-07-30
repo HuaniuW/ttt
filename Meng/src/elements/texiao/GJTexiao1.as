@@ -31,13 +31,12 @@ package elements.texiao
 		protected var sjObj:Object;
 		protected var hitMc:SwfImage;
 		
-		public function getSJObj(obj:Object,role:Ibiont,theEnemyArr:Array):void{
+		public function getSJObj(obj:Object,role:Ibiont):void{
 			this.sjObj = obj;
 			show(obj["name"],role,obj["_x"]);
-			getFrameShow(obj["dongzuoLabel"],8,theEnemyArr);
+			getFrameShow(obj["dongzuoLabel"],8);
+			this._enemyArr = role.getEnemyArr();
 		}
-		
-		
 		
 		
 		/**
@@ -74,18 +73,17 @@ package elements.texiao
 		/**
 		 * 
 		 * @param framelabel 角色调用哪个动作
-		 * @param numshow 角色运动到哪一帧 丢特效
+		 * @param showTXFrameNums 角色运动到哪一帧 丢特效
 		 * @param enemyArr 敌人数组
 		 * @param vx  
 		 * @param vy 
 		 */		
-		public function getFrameShow(framelabel:String,numshow:int,enemyArr:Array,vx:Number=0,vy:Number=0):void{
+		public function getFrameShow(framelabel:String,showTXFrameNums:int,vx:Number=0,vy:Number=0):void{
 			this._vx = vx;
 			this._vy = vy;
 			this._framelabel = framelabel;
-			this._numshow = numshow;
-			this._enemyArr = enemyArr;
-			this._role.getTheDongzuo(framelabel,numshow,cbkF);
+			this._numshow = showTXFrameNums;
+			this._role.getTheDongzuo(framelabel,showTXFrameNums,cbkF);
 		}
 		
 		
@@ -93,15 +91,11 @@ package elements.texiao
 			if(!this._texiaoMc)this._texiaoMc = GameManager.getInstance().assetMgr.createMovieClip(_txname);
 			this._texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
-//			trace(">>>>>   "+this._texiaoMc.currentFrame+"    "+this.parent+"  roleScaleX "+this._role.getScaleX());
-			
 			this.scaleX =  this._role.getScaleX();
-//			trace(this.scaleX+"  -------------   "+this.getScaleX());
-			
+			trace(this.scaleX+" -----roleScaleX  "+this._role.getScaleX());
 			this.x = this._role.getX()-this.scaleX*this.__x;
 			this.y = this._role.getY()+this._role.getHeight()*0.5+this.__y;
 			Engine.createEngine().push(this.action);
-			
 		}
 		
 		
@@ -115,7 +109,7 @@ package elements.texiao
 			if(this._chixushijian&&this._chixushijian!=0){
 				return;
 			}
-//			trace(">>  "+this._texiaoMc.currentFrame);
+			trace(">>  "+this._role.getCurrentLabel());
 			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
 //				trace("---------------->>  "+this._texiaoMc.currentFrame);
 				numsss++;
@@ -156,10 +150,11 @@ package elements.texiao
 		protected override function removeSelf():void{
 			if(this.parent){
 				this._texiaoMc.removeFromParent();
-//				this._texiaoMc = null;
+				this._texiaoMc = null;
 				numsss = 0;
 				Engine.createEngine().pop(this.action);
 				this.removeFromParent();
+				TexiaoPool2.getInstance().getInPool(sjObj["txName"],this);
 			}
 		}
 		

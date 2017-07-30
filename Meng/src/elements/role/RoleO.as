@@ -159,7 +159,6 @@ package elements.role
 		
 		protected var _isDongzuo:Boolean = false;
 		public var _isDongzuoing:Boolean = false;
-		protected var _isCbk:Boolean = false;
 		protected var _DZcbkFNum:int = 0;
 		protected var _DZcbk:Function;
 		protected function getDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void{
@@ -175,12 +174,10 @@ package elements.role
 		}
 		
 		protected function Dongzuoing():void{
-			if(!_isCbk&&this._bodyMc.currentFrame==this._bodyMc.endFrame - _DZcbkFNum){
-				_isCbk = true;
+			if(this._bodyMc.currentFrame==this._bodyMc.endFrame - _DZcbkFNum){
 				_DZcbk();
 			}
 			if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
-				_isCbk = false;
 				this._isDongzuoing = false;
 				_isDongzuo = false;
 			}
@@ -778,7 +775,7 @@ package elements.role
 			if(this._bodyMc.currentLabel == "stand"){
 				return true;
 			}
-			if(this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
+			if(this.isAtking&&this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
 				this.isAtking = false;
 				return true;
 			}

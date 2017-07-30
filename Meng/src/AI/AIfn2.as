@@ -24,7 +24,9 @@ package AI
 		private var standPatrol:StandPatrol;
 		private var _aiAcPlay:AIAcPlay;
 		private function getAI():void{
+			/**站着不动 警示站岗*/
 			if(!standPatrol)standPatrol = StandPatrol.getInstance(_obj,_targetObj,this.cbk,_obj.getAlertDistance());
+			
 			if(!_aiAcPlay)_aiAcPlay = AIAcPlay.getInstance(_obj,_targetObj,this.cbk);
 		}
 		

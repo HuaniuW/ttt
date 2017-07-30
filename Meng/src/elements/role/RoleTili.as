@@ -12,7 +12,7 @@ package elements.role
 		
 		private var _restNum:Number = 0;
 		private var _isRest:Boolean = false;
-		private var _restNums:Number = 80;
+		private var _restNums:Number = 60;
 		
 		public var isTiliOver:Boolean = false;
 		
@@ -28,7 +28,7 @@ package elements.role
 			Engine.createEngine().push(action);
 		}
 		
-		public function getXRest(restNums:Number = 80):void{
+		public function getXRest(restNums:Number = 60):void{
 			this._restNum = 0;
 			_restNums = restNums;
 			this._isRest = true;

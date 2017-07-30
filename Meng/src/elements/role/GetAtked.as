@@ -16,6 +16,7 @@ package elements.role
 		{
 		}
 		
+		private var _bodyMc;
 		
 		/**
 		 *是否击中 

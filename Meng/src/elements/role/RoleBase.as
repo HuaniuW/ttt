@@ -108,6 +108,24 @@ package elements.role
 			
 		}
 		
+		public function getEnemyArr():Array
+		{
+			return this.enemyArr;
+		}
+		
+		public function getCurrentLabel():String
+		{
+			return this._bodyMc.currentLabel;
+		}
+		
+		
+		
+		public function getAction(acName:String):void
+		{
+			_bodyMc.gotoAndPlay(acName);
+		}
+		
+		
 		public function removeSelf():void
 		{
 		}
