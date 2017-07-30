@@ -7,6 +7,7 @@ package elements.role
 	
 	import elements.jineng.JinengObj;
 	import elements.texiao.GJTexiao1;
+	import elements.texiao.TexiaoPool2;
 	
 	import game.myGame.PifuChange;
 	
@@ -40,17 +41,8 @@ package elements.role
 		private var gjtx:GJTexiao1;
 		private function onBtn1(e:Event):void
 		{
-			
 			var _name:String = e.data["_name"];
-			var obj:Object = JinengObj[_name];
-			trace("=================================================================================================================");
-			trace("jineng1 >  "+obj["dongzuoLabel"]+"   ---- "+this.getScaleX()+"   ??this.scaleX   "+this.scaleX);
-			if(!gjtx){
-				gjtx = new GJTexiao1();		
-			}
-			gjtx.getSJObj(obj,this,this.enemyArr);
-			
-			
+			TexiaoPool2.getInstance().getOnTexiao(_name,this);
 		}		
 		
 		private function cbk(obj):void{

@@ -65,8 +65,16 @@ package elements.I
 		function getThisChildIndex():int;
 		
 		function getTheDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void;
+		function getCurrentLabel():String;
 		
 		function getScaleX():int;
+		/**
+		 * 跳帧
+		 * @param acName 跳帧的名字 
+		 */		
+		function getAction(acName:String):void;
+		
+		function getEnemyArr():Array;
 		
 	}
 }
