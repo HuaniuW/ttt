@@ -29,7 +29,7 @@ package elements.texiao
 		public function getOnTexiao(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
 			var obj:Object = JinengObj[_name];
 			_txClassName = obj["className"];
-			var gjtx:DisplayObject = getTexiao(obj["txName"]);
+			var gjtx:DisplayObject = getTexiao(obj["jnName"]);
 			gjtx["getSJObj"](obj,role);
 		}
 		
@@ -39,11 +39,11 @@ package elements.texiao
 			}
 			if(!(this._objPool[_name] as Array).length){
 				var mcClassName:String = "elements.texiao"+"::"+_txClassName;
-				trace("mc>> "+mcClassName);
+//				trace("mc>>>>>>>>>>>>>>>>>>>>>>>>>>>>     "+mcClassName);
 				var McClass:Class = getDefinitionByName(mcClassName) as Class;
 				return new McClass();
 			}else{
-				trace("取对象池的 对象 _name  "+_name);
+//				trace("取对象池的 对象 _name  "+_name);
 				return ((this._objPool[_name] as Array).shift());
 			}
 		}

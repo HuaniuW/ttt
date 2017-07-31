@@ -33,7 +33,7 @@ package elements.texiao
 		
 		public function getSJObj(obj:Object,role:Ibiont):void{
 			this.sjObj = obj;
-			show(obj["name"],role,obj["_x"]);
+			show(obj["txMCName"],role,obj["_x"]);
 			getFrameShow(obj["dongzuoLabel"],8);
 			this._enemyArr = role.getEnemyArr();
 		}
@@ -47,9 +47,10 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		override public function show(_name:String, role:Ibiont, _x:Number=0, _y:Number=0, num:int=100):void
+		override public function show(txMCName:String, role:Ibiont, _x:Number=0, _y:Number=0, num:int=100):void
 		{
-			this._txname = _name;
+			this._txMCName = txMCName;
+			trace("_txname   "+_txMCName);
 			this._num = num;
 			
 			
@@ -88,7 +89,8 @@ package elements.texiao
 		
 		
 		private function cbkF():void{
-			if(!this._texiaoMc)this._texiaoMc = GameManager.getInstance().assetMgr.createMovieClip(_txname);
+			if(!this._texiaoMc)this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName); //GameManager.getInstance().assetMgr.createMovieClip(_txname);
+			
 			this._texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			this.scaleX =  this._role.getScaleX();
@@ -109,7 +111,7 @@ package elements.texiao
 			if(this._chixushijian&&this._chixushijian!=0){
 				return;
 			}
-			trace(">>  "+this._role.getCurrentLabel());
+//			trace(">>  "+this._role.getCurrentLabel());
 			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
 //				trace("---------------->>  "+this._texiaoMc.currentFrame);
 				numsss++;
@@ -150,11 +152,12 @@ package elements.texiao
 		protected override function removeSelf():void{
 			if(this.parent){
 				this._texiaoMc.removeFromParent();
-				this._texiaoMc = null;
 				numsss = 0;
 				Engine.createEngine().pop(this.action);
 				this.removeFromParent();
-				TexiaoPool2.getInstance().getInPool(sjObj["txName"],this);
+				TexiaoPool2.getInstance().getInPool(sjObj["jnName"],this);
+				TXMcPool.getInstance().getInPool(this._txMCName,this._texiaoMc);
+				this._texiaoMc = null;
 			}
 		}
 		

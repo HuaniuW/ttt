@@ -148,7 +148,7 @@ package elements.role
 			}
 			
 			
-			if(!this.isCanAtk&&!isRunLeft &&!isRunRight&&!isAtking&&!isBeHit&&!isStand&&!_isJumping&&!_isDie){
+			if(!this.isCanAtk&&!isRunLeft &&!isRunRight&&!isAtking&&!isBeHit&&!isStand&&!_isJumping&&!_isDie&&!_isDongzuoing){
 				stand();
 				return;
 			}
@@ -162,11 +162,15 @@ package elements.role
 		protected var _DZcbkFNum:int = 0;
 		protected var _DZcbk:Function;
 		protected function getDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void{
+		protected var _DZcanMoveFrame:int = 0;
+		
+		protected function getDongzuo(label:String,DZcbkFNum:int,DZcbk:Function,DZcanMoveFrame:int=0):void{
 			if(this.zuduan()||isAtking||isAvoiding)return;
 			if(!_isDongzuo){
 				this.ztreSet();
 				_isDongzuo = true;
 				_DZcbkFNum = DZcbkFNum;
+				_DZcanMoveFrame = DZcanMoveFrame;
 				_DZcbk = DZcbk;
 				this._bodyMc.gotoAndPlay(label);
 				_isDongzuoing = true;
@@ -177,7 +181,7 @@ package elements.role
 			if(this._bodyMc.currentFrame==this._bodyMc.endFrame - _DZcbkFNum){
 				_DZcbk();
 			}
-			if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
+			if(this._bodyMc.currentFrame == this._bodyMc.endFrame-_DZcanMoveFrame){
 				this._isDongzuoing = false;
 				_isDongzuo = false;
 			}
@@ -287,6 +291,12 @@ package elements.role
 			if(this._isGedanging)return;
 			if(this.isAvoiding)return;
 			if(zuduan())return;
+			if(!isAtking||this.isCanAtk){
+				
+			}
+			
+			
+			
 			if(!isAtking||this.isCanAtk){
 				if(this._isJumping){
 					if(!isJumpAtking){
@@ -414,7 +424,7 @@ package elements.role
 				
 				this._bodyMc.getImage("hitMc").width = this.gongjizhaoshiArr[this.cgjNum-1]["atkjuli"]
 				
-				TexiaoPool.getInstance().getOnTexiao(this.gongjizhaoshiArr[this.cgjNum-1]["texiao"],this,this.gongjizhaoshiArr[this.cgjNum-1]["txpy"]);
+				TexiaoPool.getInstance().getOnTexiao(this.gongjizhaoshiArr[this.cgjNum-1]["txMCName"],this,this.gongjizhaoshiArr[this.cgjNum-1]["txpy"]);
 				
 				MySoundPool.instance.getSound("atk",Globals.soundNums);
 				for(var i:int in this.enemyArr){
@@ -454,7 +464,7 @@ package elements.role
 			
 			if(_roleTili)_roleTili.getBeHitTili();
 			
-			this.ztreSet();
+			
 			
 			
 			this._roleLive.curLive-=(gjl - this.fangyuli);
@@ -474,8 +484,10 @@ package elements.role
 			
 			
 			
+			//每个都要单独reset 
 			
 			if(this.isDie()){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
 				return;
@@ -483,6 +495,7 @@ package elements.role
 			
 			
 			if(gjl/this.yingzhi>=3){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
 				theVelocityY(-cy);
@@ -491,12 +504,7 @@ package elements.role
 			
 			
 			if(gjl/this.yingzhi>=2){
-				this.isBeHitOut = true;
-				this.beHitOut();
-				return;
-			}
-			
-			if(this.isBeHitOuting){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
 				return;
@@ -508,6 +516,14 @@ package elements.role
 			//加if(瞬间总伤害和>硬直)
 			
 			if(this._isJumping){
+				this.ztreSet();
+				this.isBeHitOut = true;
+				this.beHitOut();
+				return;
+			}
+			
+			if(this.isBeHitOuting){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
 				return;
@@ -516,6 +532,7 @@ package elements.role
 			
 			if(gjl/this.yingzhi>=1){
 				if(this._bodyMc.currentLabel=="beHitOut"){
+					this.ztreSet();
 					this.isBeHitOut = true;
 					this.beHitOut();
 					
@@ -525,6 +542,8 @@ package elements.role
 				this._bodyMc.gotoAndPlay(this.beHitAcArr[0]);
 				return;
 			}
+			
+			
 			
 			
 //			this._bodyMc.gotoAndPlay(this.beHitAcArr[0]);

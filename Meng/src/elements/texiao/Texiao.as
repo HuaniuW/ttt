@@ -26,7 +26,7 @@ package elements.texiao
 		protected var _num:int;
 		protected var _parent:DisplayObjectContainer;
 		protected var _isGensui:Boolean =false;
-		protected var _txname:String;
+		protected var _txMCName:String;
 		
 		protected var __x:Number = 0;
 		protected var __y:Number = 0;
@@ -38,10 +38,11 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		public function show(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
-			this._txname = _name;
+		public function show(txMCName:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
+			this._txMCName = txMCName;
 			this._num = num;
-			this._texiaoMc = GameManager.getInstance().assetMgr.createMovieClip(_name);
+			this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName);
+			_texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			
 			this.__x = _x;
@@ -84,7 +85,9 @@ package elements.texiao
 		protected function removeSelf():void{
 			if(this.parent){
 				this.removeFromParent();
-				TexiaoPool.getInstance().getInPool(this._txname,this);
+				TexiaoPool.getInstance().getInPool(this._txMCName,this);
+				TXMcPool.getInstance().getInPool(this._txMCName,this._texiaoMc);
+				this._texiaoMc = null;
 			}
 		}
 		
