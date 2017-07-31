@@ -351,7 +351,7 @@ package elements.role
 			return 0;
 		}
 		
-		public function getTheDongzuo(label:String, DZcbkFNum:int, DZcbk:Function):void
+		public function getTheDongzuo(label:String, showTXFrameNum:int, DZcbk:Function,DZcanMoveFrame:int=1):void
 		{
 			// TODO Auto Generated method stub
 			

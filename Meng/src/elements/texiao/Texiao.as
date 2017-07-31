@@ -23,7 +23,7 @@ package elements.texiao
 		
 		
 		protected var _role:Ibiont;
-		protected var _num:int;
+		protected var _numChangeCeng:int;
 		protected var _parent:DisplayObjectContainer;
 		protected var _isGensui:Boolean =false;
 		protected var _txMCName:String;
@@ -38,9 +38,9 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		public function show(txMCName:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
+		public function show(txMCName:String,role:Ibiont,_x:Number=0,_y:Number=0,numChangeCeng:int=100):void{
 			this._txMCName = txMCName;
-			this._num = num;
+			this._numChangeCeng = numChangeCeng;
 			this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName);
 			_texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
@@ -73,7 +73,7 @@ package elements.texiao
 				this.x = this._role.getX()-this.scaleX*this.__x;
 				this.y = this._role.getY()+this._role.getHeight()*0.5+this.__y;
 			}
-			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._num){
+			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._numChangeCeng){
 				this._parent.addChildAt(this,_role.getThisChildIndex()-1);
 			}
 			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._texiaoMc.totalFrames-1){

@@ -64,7 +64,7 @@ package elements.I
 		function getHeight():Number;
 		function getThisChildIndex():int;
 		
-		function getTheDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void;
+		function getTheDongzuo(label:String,showTXFrameNum:int,DZcbk:Function,DZcanMoveFrame:int=1):void;
 		function getCurrentLabel():String;
 		
 		function getScaleX():int;
