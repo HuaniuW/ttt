@@ -10,6 +10,7 @@ package elements.role
 	
 	import elements.I.Ibiont;
 	import elements.texiao.TexiaoPool;
+	import elements.texiao.TexiaoPool2;
 	
 	import game.engine.Engine;
 	import game.mySound.MySoundPool;
@@ -149,6 +150,7 @@ package elements.role
 			
 			
 			if(!this.isCanAtk&&!isRunLeft &&!isRunRight&&!isAtking&&!isBeHit&&!isStand&&!_isJumping&&!_isDie&&!_isDongzuoing){
+				trace("????stand");
 				stand();
 				return;
 			}
@@ -159,26 +161,30 @@ package elements.role
 		
 		protected var _isDongzuo:Boolean = false;
 		public var _isDongzuoing:Boolean = false;
-		protected var _DZcbkFNum:int = 0;
+		/**倒帧返回帧数*/
+		protected var _showTXFrameNum:int = 0;
 		protected var _DZcbk:Function;
-		protected function getDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void{
-		protected var _DZcanMoveFrame:int = 0;
+		protected var _DZcanMoveFrame:int = 1;
 		
-		protected function getDongzuo(label:String,DZcbkFNum:int,DZcbk:Function,DZcanMoveFrame:int=0):void{
+		protected function getDongzuo(label:String,showTXFrameNum:int,DZcbk:Function,DZcanMoveFrame:int=1):void{
 			if(this.zuduan()||isAtking||isAvoiding)return;
 			if(!_isDongzuo){
 				this.ztreSet();
 				_isDongzuo = true;
-				_DZcbkFNum = DZcbkFNum;
-				_DZcanMoveFrame = DZcanMoveFrame;
-				_DZcbk = DZcbk;
 				this._bodyMc.gotoAndPlay(label);
+				_showTXFrameNum = this._bodyMc.currentFrame+showTXFrameNum;
+				_DZcanMoveFrame = DZcanMoveFrame;
+				if(_DZcanMoveFrame>=this._bodyMc.endFrame-showTXFrameNum){
+					_DZcanMoveFrame = showTXFrameNum-1;
+				}
+				_DZcbk = DZcbk;
+				
 				_isDongzuoing = true;
 			}
 		}
 		
 		protected function Dongzuoing():void{
-			if(this._bodyMc.currentFrame==this._bodyMc.endFrame - _DZcbkFNum){
+			if(this._bodyMc.currentFrame==_showTXFrameNum){
 				_DZcbk();
 			}
 			if(this._bodyMc.currentFrame == this._bodyMc.endFrame-_DZcanMoveFrame){
@@ -291,41 +297,50 @@ package elements.role
 			if(this._isGedanging)return;
 			if(this.isAvoiding)return;
 			if(zuduan())return;
-			if(!isAtking||this.isCanAtk){
-				
+			
+			if(!xiaohaotili(10))return;
+			if(nums == 0){
+				this.gjNum++;
+				this.cgjNum = this.gjNum;
+			}else{
+				gjNum = cgjNum = nums;
 			}
 			
+			TexiaoPool2.getInstance().getOnTexiao(gongjizhaoshiArr[this.cgjNum-1],this);
+			
+			gjnqnum = 0;
+			if(this.gjNum == this.gongjizhaoshiArr.length)this.gjNum = 0;
 			
 			
-			if(!isAtking||this.isCanAtk){
-				if(this._isJumping){
-					if(!isJumpAtking){
-						isJumpAtking = true;
-						if(!xiaohaotili(10))return;
-						this._bodyMc.gotoAndPlay("jumpAtk1");	
-						this.cgjNum = 1;
-					}
-				}else{
-					ztreSet();
-					isAtking = true;
-					if(!xiaohaotili(10))return;
-					if(nums == 0){
-						this.gjNum++;
-						this.cgjNum = this.gjNum;
-					}else{
-						gjNum = cgjNum = nums;
-					}
-					this._bodyMc.gotoAndPlay(this.gongjizhaoshiArr[this.cgjNum-1]["zs"]);
-					/**由于开始人物制作资源X方向弄反 视野是 -=*/
-					this.body.velocity.x = 0;
-					this.body.velocity.x-= this.scaleX*this.gongjizhaoshiArr[this.cgjNum-1]["vx"];
-					this.body.velocity.y-= this.gongjizhaoshiArr[this.cgjNum-1]["vy"];
-					gjnqnum = 0;
-					if(this.gjNum == this.gongjizhaoshiArr.length)this.gjNum = 0;
-					
-				}
-				
-			}
+//			if(!isAtking||this.isCanAtk){
+//				if(this._isJumping){
+//					if(!isJumpAtking){
+//						isJumpAtking = true;
+//						if(!xiaohaotili(10))return;
+//						this._bodyMc.gotoAndPlay("jumpAtk1");	
+//						this.cgjNum = 1;
+//					}
+//				}else{
+//					ztreSet();
+//					isAtking = true;
+//					if(!xiaohaotili(10))return;
+//					if(nums == 0){
+//						this.gjNum++;
+//						this.cgjNum = this.gjNum;
+//					}else{
+//						gjNum = cgjNum = nums;
+//					}
+//					this._bodyMc.gotoAndPlay(this.gongjizhaoshiArr[this.cgjNum-1]["zs"]);
+//					/**由于开始人物制作资源X方向弄反 视野是 -=*/
+//					this.body.velocity.x = 0;
+//					this.body.velocity.x-= this.scaleX*this.gongjizhaoshiArr[this.cgjNum-1]["vx"];
+//					this.body.velocity.y-= this.gongjizhaoshiArr[this.cgjNum-1]["vy"];
+//					gjnqnum = 0;
+//					if(this.gjNum == this.gongjizhaoshiArr.length)this.gjNum = 0;
+//					
+//				}
+//				
+//			}
 		}
 		
 		
@@ -531,8 +546,9 @@ package elements.role
 			
 			
 			if(gjl/this.yingzhi>=1){
+				this.ztreSet();
 				if(this._bodyMc.currentLabel=="beHitOut"){
-					this.ztreSet();
+					
 					this.isBeHitOut = true;
 					this.beHitOut();
 					
@@ -883,9 +899,9 @@ package elements.role
 			return this.parent.getChildIndex(this);
 		}
 		
-		override public function getTheDongzuo(label:String, DZcbkFNum:int, DZcbk:Function):void
+		override public function getTheDongzuo(label:String, showTXFrameNum:int, DZcbk:Function,DZcanMoveFrame:int=1):void
 		{
-			this.getDongzuo(label, DZcbkFNum, DZcbk);
+			this.getDongzuo(label, showTXFrameNum, DZcbk,DZcanMoveFrame);
 		}
 		
 		
