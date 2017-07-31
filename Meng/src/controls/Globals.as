@@ -26,7 +26,7 @@ package controls
 		public static var enemyArr:Array = [];
 		
 		
-		public static var isDebug:Boolean = true;
+		public static var isDebug:Boolean = false;
 		
 		public static var soundNums:Number = 0.3;
 		

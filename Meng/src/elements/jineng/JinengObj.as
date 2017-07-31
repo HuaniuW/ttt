@@ -28,7 +28,7 @@ package elements.jineng
 			"num":100,
 			"_x":0,
 			"_y":0,
-			"atkjuli":150,"gjkpy":24,"gjl":1150,
+			"atkjuli":150,"gjkpy":24,"gjl":150,
 			"txpy":0
 		};
 		public static var atk2:Object = {"jnName":"atk2","txMCName":"mc_a2_gjtx","className":"GJTexiao1",
@@ -38,7 +38,7 @@ package elements.jineng
 			"num":100,
 			"_x":0,
 			"_y":0,
-			"atkjuli":150,"gjkpy":24,"gjl":1150,
+			"atkjuli":150,"gjkpy":18,"gjl":150,
 			"txpy":0
 		};
 		public static var atk3:Object = {"jnName":"atk3","txMCName":"mc_a3_gjtx","className":"GJTexiao1",
@@ -48,8 +48,33 @@ package elements.jineng
 			"num":100,
 			"_x":0,
 			"_y":0,
-			"atkjuli":250,"gjkpy":24,"gjl":1150,
+			"atkjuli":190,"gjkpy":-60,"gjl":650,
 			"txpy":0
 		};
+		
+		public static var atkg1_1:Object = {"jnName":"atk1_1","txMCName":"mc_a1_gjtx","className":"GJTexiao1",
+			"cbkF":1,"DZcanMoveFrame":9,
+			"dongzuoLabel":"atk1",
+			"vx":300,"vy":0,"cx":0,"cy":0,
+			"num":100,
+			"_x":40,
+			"_y":0,
+			"atkjuli":210,"gjkpy":80,"gjl":150,
+			"txpy":130
+		};
+		public static var atkg1_2:Object = {"jnName":"atk1_2","txMCName":"mc_a2_gjtx","className":"GJTexiao1",
+			"cbkF":1,"DZcanMoveFrame":9,
+			"dongzuoLabel":"atk2",
+			"vx":300,"vy":0,"cx":0,"cy":0,
+			"num":100,
+			"_x":40,
+			"_y":0,
+			"atkjuli":210,"gjkpy":80,"gjl":150,
+			"txpy":130
+		};
+		
+		
+		
+		
 	}
 }

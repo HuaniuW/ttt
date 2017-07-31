@@ -1,6 +1,7 @@
 package AI.aiac
 {
 	import elements.I.Ibiont;
+	import elements.jineng.JinengObj;
 
 	public class AIAtk
 	{
@@ -15,21 +16,21 @@ package AI.aiac
 		}
 		
 		
-		private var _obj:Ibiont;
+		private var _role:Ibiont;
 		private var _targetObj:Ibiont;
 		private var _nums:int =1;
 		public function getObj(obj:Ibiont, targetObj:Ibiont,nums:int =1):void{
-			this._obj = obj;
+			this._role = obj;
 			this._targetObj = targetObj;
 			this._nums = nums;
 		}
 		
 		public function getGJDastance():Number{
-			return _obj.getGJSZArr()[_nums-1]["atkjuli"];
+			return JinengObj[_role.getGJSZArr()[_nums-1]]["atkjuli"];
 		}
 		
 		public function getAc():void{
-			_obj.atk(_nums);
+			_role.atk(_nums);
 		}
 	}
 }

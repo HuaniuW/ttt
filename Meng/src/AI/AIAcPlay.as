@@ -37,11 +37,11 @@ package AI
 		public function getAcArr(arr:Array):void{
 			_acArr = arr;
 			
-			_acArr = ["atk_1","atk_2","atk_1","atk_2","atk_1","atk_2"];
+			_acArr = ["atkg1_1","atkg1_2","atkg1_1","atkg1_2","atkg1_1","atkg1_2"];
 			//取第一招 攻击对象
 			_isQishouGJ = true;
 			_czhaoshi = _acArr.shift();
-			if(_czhaoshi.split("_")[0]=="atk"){
+			if(_czhaoshi){
 				AIAtk.getInstance().getObj(this._obj,this._targetObj,_czhaoshi.split("_")[1]*1);	
 				this.atkDistance = 	AIAtk.getInstance().getGJDastance();
 			}
@@ -114,7 +114,8 @@ package AI
 		}
 		
 		private function getAtk():void{
-			if(_czhaoshi.split("_")[0]=="atk"){
+			if(_czhaoshi){
+				trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>???????????????"+_acArr.length);
 				AIAtk.getInstance().getObj(this._obj,this._targetObj,_czhaoshi.split("_")[1]*1);	
 				AIAtk.getInstance().getAc();
 				_isAction = true;

@@ -56,7 +56,7 @@ package elements.grx
 			_roleTili.maxTili = this.maxTili;
 			_roleTili.curTili = this.curTili;
 			
-//			AIfn2.getInstance().getAiObj(this,Globals.player);
+			AIfn2.getInstance().getAiObj(this,Globals.player);
 			this.enemyArr = [Globals.player];
 		}
 		

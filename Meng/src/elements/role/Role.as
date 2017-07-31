@@ -67,13 +67,13 @@ package elements.role
 		}
 		
 		protected override function atkAc():void{
-			if(this.getPlayFrameOver()){
-				this.isCanAtk = true;
-			}
-			
-			if(this.getPlayFrameOver()){
-				this.isCanAtkedMove = true;
-			}
+//			if(this.getPlayFrameOver()){
+//				this.isCanAtk = true;
+//			}
+//			
+//			if(this.getPlayFrameOver()){
+//				this.isCanAtkedMove = true;
+//			}
 			
 			super.atkAc();
 		}

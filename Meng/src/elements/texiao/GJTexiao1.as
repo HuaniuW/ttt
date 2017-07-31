@@ -130,7 +130,8 @@ package elements.texiao
 		protected function getAtked():void{
 			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
 				hitMc = this._texiaoMc.getImage("hitMc");
-				hitMc.width = this.sjObj["atkjuli"]
+				hitMc.width = this.sjObj["atkjuli"];
+				hitMc.x = -100;
 				MySoundPool.instance.getSound("atk",Globals.soundNums);
 				for(var i:int in this._enemyArr){
 					//					trace(((Globals.enemyArr[i]) as IHit).getBeHitMc().x);

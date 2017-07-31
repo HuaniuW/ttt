@@ -9,6 +9,7 @@ package elements.role
 	import controls.Globals;
 	
 	import elements.I.Ibiont;
+	import elements.jineng.JinengObj;
 	import elements.texiao.TexiaoPool;
 	import elements.texiao.TexiaoPool2;
 	
@@ -801,19 +802,22 @@ package elements.role
 		override public function getPlayFrameOver(num:int = 0,isCZ:Boolean = false):Boolean
 		{
 //			trace(this._bodyMc.currentLabel+"  > "+this._bodyMc.currentFrame+" : "+(this._bodyMc.endFrame-num)+"   end  "+this._bodyMc.endFrame);
-			if(isCZ){
-				gjendNum = num;
-			}else{
-				gjendNum = getGJSZ()["bcf"];
-			}
+//			if(isCZ){
+//				gjendNum = num;
+//			}else{
+//				gjendNum = getGJSZ()["bcf"];
+//			}
 			
 			if(this._bodyMc.currentLabel == "stand"){
 				return true;
 			}
-			if(this.isAtking&&this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
-				this.isAtking = false;
-				return true;
-			}
+			
+			return !_isDongzuoing;
+			
+//			if(this.isAtking&&this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
+//				this.isAtking = false;
+//				return true;
+//			}
 			return false;
 		}
 		
@@ -854,7 +858,7 @@ package elements.role
 		
 		
 		override public function getGJSZ():Object{
-			return this.gongjizhaoshiArr[this.cgjNum-1];
+			return JinengObj[this.gongjizhaoshiArr[this.cgjNum-1]];
 		}
 		
 		override public function getGJSZArr():Array
