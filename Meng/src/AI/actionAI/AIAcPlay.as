@@ -1,10 +1,12 @@
-package AI
+package AI.actionAI
 {
-	import AI.aiac.AIAtk;
+	import AI.baseAI.AIAtk;
 	
 	import elements.I.Ibiont;
 	
 	import game.engine.Engine;
+	import AI.baseAI.MoveNear;
+	import AI.AIBase;
 	
 	public class AIAcPlay extends AIBase
 	{
@@ -74,7 +76,6 @@ package AI
 		
 		private var _isBeHited:Boolean = false;
 		public function action():void{
-//			trace("_acArr.length: "+_acArr.length);
 			if(_obj.getIsBeHiting()||_obj.getIsBeHitOuting()){
 				//被击破
 				_isBeHited = true;
@@ -105,9 +106,10 @@ package AI
 				if(_acArr.length){
 					_czhaoshi = _acArr.shift();
 					getAtk();
+				}else{
+					_cbk();
+					Engine.createEngine().pop(this.action);
 				}
-			}else{
-				
 			}
 			
 			
@@ -115,7 +117,6 @@ package AI
 		
 		private function getAtk():void{
 			if(_czhaoshi){
-				trace(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>???????????????"+_acArr.length);
 				AIAtk.getInstance().getObj(this._obj,this._targetObj,_czhaoshi.split("_")[1]*1);	
 				AIAtk.getInstance().getAc();
 				_isAction = true;

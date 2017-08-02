@@ -5,6 +5,7 @@
 		"minSpeed":120,
 		"maxSpeed":520,
 		"gongjizhaoshiArr":["atk1","atk2","atk3"],
+		"jumpGJArr":["jumpAtk1","jumpAtk2"],
 		"jumpPow":990,
 		"maxLive":900,
 		"jinengArr":[{"a":1},{"b":2}],

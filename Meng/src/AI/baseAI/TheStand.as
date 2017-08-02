@@ -1,6 +1,7 @@
-package AI
+package AI.baseAI
 {
 	import elements.I.Ibiont;
+	import AI.AIBase;
 	
 	public class TheStand extends AIBase
 	{

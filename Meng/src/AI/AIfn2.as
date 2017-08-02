@@ -1,5 +1,9 @@
 package AI
 {
+	import AI.actionAI.AIAcPlay;
+	import AI.actionAI.AIAddTili;
+	import AI.actionAI.StandPatrol;
+	
 	import elements.I.IAi;
 	import elements.I.Ibiont;
 	
@@ -23,11 +27,14 @@ package AI
 		
 		private var standPatrol:StandPatrol;
 		private var _aiAcPlay:AIAcPlay;
+		private var _aiAddTili:AIAddTili;
 		private function getAI():void{
 			/**站着不动 警示站岗*/
-			if(!standPatrol)standPatrol = StandPatrol.getInstance(_obj,_targetObj,this.cbk,_obj.getAlertDistance());
+			if(!standPatrol)standPatrol = StandPatrol.getInstance(_obj,_targetObj,cbk,_obj.getAlertDistance());
 			
-			if(!_aiAcPlay)_aiAcPlay = AIAcPlay.getInstance(_obj,_targetObj,this.cbk);
+			if(!_aiAcPlay)_aiAcPlay = AIAcPlay.getInstance(_obj,_targetObj,cbk);
+			
+			if(!_aiAddTili)_aiAddTili = AIAddTili.getInstance(_obj,_targetObj,cbk);
 		}
 		
 		/**返回函数*/
@@ -51,6 +58,10 @@ package AI
 				isRandon = false;
 				reSetAll();
 				var r:int = Math.random()*10;
+				if(_obj.theCurTili()<_obj.theMaxTili()*0.2){
+					_aiAddTili.getAddTili(0.6,300);
+					return;
+				}
 				trace("random:  "+r);
 				_aiAcPlay.getAcArr([]);
 				return;

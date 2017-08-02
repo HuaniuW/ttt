@@ -42,10 +42,10 @@ package screens
 			Globals.player.isRunLeft = MyKeyBoardTest.left;
 			Globals.player.isRunRight = MyKeyBoardTest.right;
 			if(MyKeyBoardTest.atk){
-				if(!Globals.player.isAtking)Globals.player.atk();
+				if(!Globals.player._isDongzuoing)Globals.player.atk();
 			}
 			if(MyKeyBoardTest.avoid){
-				if(!Globals.player.isAtking)Globals.player.avoid();
+				if(!Globals.player._isDongzuoing)Globals.player.avoid();
 			}
 			if(MyKeyBoardTest.btn1C){
 				if(!Globals.player._isDongzuoing){

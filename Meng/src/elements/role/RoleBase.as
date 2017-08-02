@@ -35,6 +35,7 @@ package elements.role
 		public var jumpPow:Number = 0;
 		
 		public var gongjizhaoshiArr:Array = [];
+		public var jumpGJArr:Array = [];
 		
 		protected var _isDie:Boolean = false;
 		
@@ -106,6 +107,15 @@ package elements.role
 			addChild(body.graphic);
 			
 			
+		}
+		
+		/**
+		 *设置自己 body 和刚体的 Y的误差 
+		 * @param nums
+		 * 
+		 */		
+		protected function setBodyY(nums):void{
+			_bodyMc.pivotY = -_bodyMc.height*0.5+nums;
 		}
 		
 		public function getEnemyArr():Array
@@ -294,13 +304,13 @@ package elements.role
 		public function theCurTili():Number
 		{
 			// TODO Auto Generated method stub
-			return 0;
+			return this._roleTili.curTili;
 		}
 		
 		public function theMaxTili():Number
 		{
 			// TODO Auto Generated method stub
-			return 0;
+			return this._roleTili.maxTili;
 		}
 		
 		public function getRoleLive():RoleLive
@@ -355,6 +365,16 @@ package elements.role
 		{
 			// TODO Auto Generated method stub
 			
+		}
+		
+		public function bodyMcPlay():void
+		{
+			this._bodyMc.stop();
+		}
+		
+		public function bodyMcStop():void
+		{
+			this._bodyMc.play();
 		}
 		
 		

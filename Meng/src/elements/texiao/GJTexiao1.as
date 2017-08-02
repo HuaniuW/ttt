@@ -1,6 +1,5 @@
 package elements.texiao
 {
-	import controls.GameManager;
 	import controls.GetHit;
 	import controls.Globals;
 	
@@ -50,7 +49,7 @@ package elements.texiao
 		override public function show(txMCName:String, role:Ibiont, _x:Number=0, _y:Number=0, numChangeCeng:int=100):void
 		{
 			this._txMCName = txMCName;
-			trace("_txname   "+_txMCName);
+//			trace("_txname   "+_txMCName);
 			this._numChangeCeng = numChangeCeng;
 			
 			
@@ -95,7 +94,7 @@ package elements.texiao
 			this._texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			this.scaleX =  this._role.getScaleX();
-			trace(this.scaleX+" -----roleScaleX  "+this._role.getScaleX());
+//			trace(this.scaleX+" -----roleScaleX  "+this._role.getScaleX());
 			this.x = this._role.getX()-this.scaleX*this.__x;
 			this.y = this._role.getY()+this._role.getHeight()*0.5+this.__y;
 			Engine.createEngine().push(this.action);
@@ -112,7 +111,7 @@ package elements.texiao
 //			trace(">>  "+this._role.getCurrentLabel());
 //			trace(">>>  "+_texiaoMc.getImage("hitMc")+"  _texiaoMc  "+_texiaoMc.currentFrame);
 			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
-				trace("---------------->>  "+this._texiaoMc.currentFrame);
+//				trace("---------------->>  "+this._texiaoMc.currentFrame);
 				numsss++;
 				if(numsss>1)return;
 				getAtked();

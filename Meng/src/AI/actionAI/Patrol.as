@@ -1,9 +1,10 @@
 /**
  *巡逻 
  */
-package AI
+package AI.actionAI
 {
 	import elements.I.Ibiont;
+	import AI.AIBase;
 
 	public class Patrol extends AIBase
 	{

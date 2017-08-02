@@ -1,4 +1,7 @@
-package AI.aiac
+/**
+ *普通攻击AI 
+ */
+package AI.baseAI
 {
 	import elements.I.Ibiont;
 	import elements.jineng.JinengObj;

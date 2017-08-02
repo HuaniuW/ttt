@@ -2,7 +2,6 @@ package elements.texiao
 {
 	import controls.GameManager;
 	
-	import elements.I.Ibiont;
 	
 	import lzm.starling.swf.display.SwfMovieClip;
 	
@@ -28,7 +27,7 @@ package elements.texiao
 			if(!(this._objPool[_name] as Array).length){
 				return GameManager.getInstance().assetMgr.createMovieClip(_name);
 			}else{
-				trace("取>>>>>>>>>>>>>>>>>>>>>>>>>  "+_name);
+//				trace("取>>>>>>>>>>>>>>>>>>>>>>>>>  "+_name);
 				return ((this._objPool[_name] as Array).shift() as SwfMovieClip);
 			}
 		}

@@ -28,6 +28,11 @@ package elements.role
 			Engine.createEngine().push(action);
 		}
 		
+		/**
+		 *重设 rest时间 
+		 * @param restNums
+		 * 
+		 */		
 		public function getXRest(restNums:Number = 60):void{
 			this._restNum = 0;
 			_restNums = restNums;
@@ -66,6 +71,25 @@ package elements.role
 			if(_curTili<_maxTili){
 				_curTili+=zzsd;
 			}
+		}
+		
+		/**
+		 * 增加体力
+		 * @param value 增加的体力值
+		 * 
+		 */		
+		public function tiliAdd(value:Number):void{
+			this.curTili +=value;
+		}
+		
+		
+		/**
+		 *按最大体力值的%比增加体力 
+		 * @param bi   0-1之间的数  
+		 * 
+		 */		
+		public function tiliAddBi(bi:Number):void{
+			this.curTili+= maxTili*bi;
 		}
 		
 		

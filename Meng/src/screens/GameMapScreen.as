@@ -92,9 +92,9 @@ package screens
 						yuanjingArr.push({"ox":0,"oy":0,"instance":img,"name":objName,"ratio":0.5});
 						continue;	
 					}
-					trace("img>  "+linkName+"   width  "+img.width+" x "+obj.x+" y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
+//					trace("img>  "+linkName+"   width  "+img.width+" x "+obj.x+" y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
 					var ClassName:String = "elements."+typeName+"::"+CharCase.friUp(objName);
-					trace("className   "+ClassName+"      "+img.width+"    "+img.height);
+//					trace("className   "+ClassName+"      "+img.width+"    "+img.height);
 					var ClassReference:Class = getDefinitionByName(ClassName) as Class;
 					var theObj:DisplayObject = new ClassReference(obj.x,obj.y,img.width,img.height,img,Napes.instance.space);
 					addChild(theObj);
@@ -108,9 +108,9 @@ package screens
 					typeName = linkName.split("_")[1];
 					mc = _gMgr.assetMgr.createMovieClip(linkName);
 					mc.gotoAndStop(0);
-					trace("mc>   "+linkName+"   width:  "+mc.width+"  x "+obj.x+"  y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
+//					trace("mc>   "+linkName+"   width:  "+mc.width+"  x "+obj.x+"  y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
 					var mcClassName:String = "elements."+typeName+"::"+CharCase.friUp(objName);
-					trace("mc>> "+mcClassName);
+//					trace("mc>> "+mcClassName);
 					var McClass:Class = getDefinitionByName(mcClassName) as Class;
 //					trace(McClass);
 					var theMcObj:DisplayObject = new McClass(mc,{},obj.x,obj.y,mc.width-10,mc.height,Napes.instance.space);
@@ -126,14 +126,14 @@ package screens
 		
 		private var _camera:StarlingCameraFocus;
 		private function getCamera(isUpDown:Boolean = false):void{
-			trace("Starling.current.stage.stageWidth: "+Starling.current.stage.stageWidth);
+//			trace("Starling.current.stage.stageWidth: "+Starling.current.stage.stageWidth);
 			if(_camera){
 				_camera.destroy();
 				_camera = null;
 			}
-			trace(Globals.player.x);
-			trace("------------------------------------------>>"+Globals.player.body.graphic.x);
-			trace("stage>>:  "+Starling.current.stage.stageWidth);
+//			trace(Globals.player.x);
+//			trace("------------------------------------------>>"+Globals.player.body.graphic.x);
+//			trace("stage>>:  "+Starling.current.stage.stageWidth);
 			_camera = new StarlingCameraFocus(Starling.current.stage,this,Globals.player.body.graphic,yuanjingArr,true,Starling.current.stage.stageWidth,isUpDown);
 			Engine.createEngine().push(_camera.update);
 			

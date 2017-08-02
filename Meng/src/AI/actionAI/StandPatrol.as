@@ -1,4 +1,4 @@
-package AI
+package AI.actionAI
 {
 	import elements.I.Ibiont;
 	

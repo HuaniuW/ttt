@@ -33,7 +33,6 @@ package elements.I
 		function beHit(vx:Number,cy:Number,gjl:Number):void;
 		function getIsBeHitOuting():Boolean;
 		function getIsBeHiting():Boolean;
-		function getIsAtking():Boolean;
 		
 		/**停止移动*/
 		function moveStop():void;
@@ -75,6 +74,10 @@ package elements.I
 		function getAction(acName:String):void;
 		
 		function getEnemyArr():Array;
+		
+		
+		function bodyMcStop():void;
+		function bodyMcPlay():void;
 		
 	}
 }

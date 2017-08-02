@@ -1,4 +1,4 @@
-package AI
+package AI.baseAI
 {
 	import elements.I.Ibiont;
 
@@ -11,7 +11,6 @@ package AI
 		
 		public static function moveNearX(obj:Ibiont,targetObj:Ibiont,nearDistance:int):Boolean{
 			if(targetObj.isDie()||obj.isDie())return false;
-//			trace("玩家    "+targetObj.getX()+"  怪   "+obj.getX());
 			if(targetObj.getX() - obj.getX()>nearDistance){
 				obj.moveR();
 //				trace("右移动");
@@ -20,16 +19,12 @@ package AI
 //				trace("左移动");
 			}else{
 				
-//				trace("进入攻击范围    "+(targetObj.getX() - obj.getX()));
 				if(targetObj.getX() - obj.getX()>0){
 					obj.moveR();	
-//					trace("RRRRRRRRRRRRRRRRRRRRRR");
 				}else{
-//					trace("LLLLLLLLLLLLLLLLLLLLLL");
 					obj.moveL();	
 				}
 				
-//				obj.moveStop();
 				return true;
 			}
 			return false;	

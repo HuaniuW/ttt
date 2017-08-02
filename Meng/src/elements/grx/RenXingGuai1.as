@@ -36,6 +36,7 @@ package elements.grx
 		protected override function getInit():void{
 			super.getInit();
 			this.getInEnemyArr();
+			setBodyY(-6);
 			
 //			_bodyMc.filter = BlurFilter.createGlow(0xeeee00);
 			GetJson.getInstance().getLoad("guai1.txt",this.cbk);

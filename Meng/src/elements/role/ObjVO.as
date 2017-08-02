@@ -26,6 +26,7 @@ package elements.role
 			
 			obj.gjNum = JsonObj["gjNum"];
 			obj.gongjizhaoshiArr = JsonObj["gongjizhaoshiArr"];
+			obj.jumpGJArr = JsonObj["jumpGJArr"];
 			obj.jinengArr = JsonObj["jinengArr"];
 			obj.alertDistance = JsonObj["alertDistance"];
 			obj.beHitAcArr = JsonObj["beHitAcArr"];

@@ -4,6 +4,8 @@ package AI
 	import elements.I.Ibiont;
 	
 	import game.engine.Engine;
+	import AI.actionAI.StandPatrol;
+	import AI.baseAI.TheStand;
 
 	public class AIfn1 implements IAi
 	{

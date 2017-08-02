@@ -13,7 +13,7 @@ package elements.jineng
 		 * cbkF 释放特效的帧
 		 */			
 		public static var chongjijian:Object = {"jnName":"chongjijian","txMCName":"mc_aj2_gjtx","className":"GJTexiao1",
-			"cbkF":3,"DZcanMoveFrame":2,
+			"cbkF":3,"DZcanMoveFrame":1,
 			"dongzuoLabel":"atk5",
 			"vx":900,"vy":0,"cx":300,"cy":0,
 			"num":100,
@@ -70,6 +70,28 @@ package elements.jineng
 			"_x":40,
 			"_y":0,
 			"atkjuli":210,"gjkpy":80,"gjl":150,
+			"txpy":130
+		};
+		
+		public static var jumpAtk1:Object = {"jnName":"jumpAtk1","txMCName":"mc_a1_gjtx","className":"GJTexiao1",
+			"cbkF":1,"DZcanMoveFrame":9,
+			"dongzuoLabel":"jumpAtk1",
+			"vx":300,"vy":0,"cx":0,"cy":0,
+			"num":100,
+			"_x":40,
+			"_y":0,
+			"atkjuli":210,"gjkpy":24,"gjl":150,
+			"txpy":130
+		};
+		
+		public static var jumpAtk2:Object = {"jnName":"jumpAtk2","txMCName":"mc_a2_gjtx","className":"GJTexiao1",
+			"cbkF":1,"DZcanMoveFrame":1,
+			"dongzuoLabel":"jumpAtk2",
+			"vx":300,"vy":0,"cx":0,"cy":0,
+			"num":100,
+			"_x":40,
+			"_y":0,
+			"atkjuli":210,"gjkpy":24,"gjl":150,
 			"txpy":130
 		};
 		
