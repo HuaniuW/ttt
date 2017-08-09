@@ -10,6 +10,7 @@ package elements.role
 	
 	import elements.I.Ibiont;
 	import elements.jineng.JinengObj;
+	import elements.jineng.JinengVO;
 	import elements.texiao.TexiaoPool;
 	import elements.texiao.TexiaoPool2;
 	
@@ -38,6 +39,7 @@ package elements.role
 		protected function getInit():void
 		{
 			if(!this._beHitCorlor)this._beHitCorlor  = new BeHitColor();
+			if(!_jinengVO)_jinengVO = new JinengVO();
 		}
 		
 		
@@ -330,28 +332,37 @@ package elements.role
 			if(this.isAvoiding)return;
 			if(zuduan())return;
 			
-			
-			if(!xiaohaotili(10))return;
-			
 			if(nums == 0){
-				this.gjNum++;
-				this.cgjNum = this.gjNum;
+				
 			}else{
-				gjNum = cgjNum = nums;
+				gjNum = cgjNum = nums-1;
 			}
+			
+			if(_isInAir){
+				if(this.gjNum >= this.jumpGJArr.length)this.gjNum = 0;
+				_jinengVO.getVO(JinengObj[jumpGJArr[this.gjNum]]);
+			}else{
+				if(this.gjNum >= this.gongjizhaoshiArr.length)this.gjNum = 0;
+				_jinengVO.getVO(JinengObj[gongjizhaoshiArr[this.gjNum]]);
+			}
+			
+			
+			if(!xiaohaotili(_jinengVO.xhtl))return;
+			
 			
 			
 			if(_isInAir){
-				if(this.gjNum == this.jumpGJArr.length)this.gjNum = 0;
-				TexiaoPool2.getInstance().getOnTexiao(jumpGJArr[this.cgjNum-1],this);
+				TexiaoPool2.getInstance().getOnTexiao(_jinengVO.jnName,this);
 				this.body.velocity.y = 0;
 				this.body.velocity.y = -200;
-				
 			}else{
-				if(this.gjNum == this.gongjizhaoshiArr.length)this.gjNum = 0;
-				TexiaoPool2.getInstance().getOnTexiao(gongjizhaoshiArr[this.cgjNum-1],this);
+				
+				TexiaoPool2.getInstance().getOnTexiao(_jinengVO.jnName,this);
 			}
 			
+			
+			this.gjNum++;
+			this.cgjNum = this.gjNum;
 			
 			
 			gjnqnum = 0;
@@ -404,18 +415,18 @@ package elements.role
 		
 		
 		
-		private function theBeHit(vx:Number,cy:Number,gjl:Number):void
+		private function theBeHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
 			if(this.isDie())return;
 			if(this._isGedanging){
 				/**格挡计算*/
 				if(this._roleTili)this._roleTili.curTili-=gjl;
-				theVelocityX(vx*1.3);
+				theVelocityX(cjvx);
 				TexiaoPool.getInstance().getOnTexiao("mc_ba1_gjtx",this,0,-60);
 				return;
 			}
 			
-			if(_roleTili)_roleTili.getBeHitTili();
+			if(_roleTili)_roleTili.getBeHitTiliStart();
 			
 			
 			
@@ -430,7 +441,7 @@ package elements.role
 			if(!this._isJumping)this._bodyMc.stop();
 			TweenLite.to(this._bodyMc,0.1,{"onComplete":onComplete});
 			
-			theVelocityX(vx*1.3);
+			theVelocityX(cjvx);
 			/**特效*/
 			TexiaoPool.getInstance().getOnTexiao("mc_ba1_gjtx",this,0,-60);
 			
@@ -450,7 +461,7 @@ package elements.role
 				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
-				theVelocityY(-cy);
+				theVelocityY(-cjvy);
 				return;
 			}
 			
@@ -704,6 +715,7 @@ package elements.role
 		{
 			this.isRunRight = false;
 			this.isRunLeft = true;
+			runLeft();
 		}
 		
 		override public function getX():int
@@ -721,6 +733,7 @@ package elements.role
 		{
 			this.isRunRight = true;
 			this.isRunLeft = false;
+			runRight();
 		}
 		
 		override public function removeSelf():void
@@ -734,7 +747,7 @@ package elements.role
 //			if(isCZ){
 //				gjendNum = num;
 //			}else{
-//				gjendNum = getGJSZ()["bcf"];
+//				gjendNum = getJNObj()["bcf"];
 //			}
 			
 			if(this._bodyMc.currentLabel == "stand"){
@@ -757,9 +770,9 @@ package elements.role
 			super.moveStop();
 		}
 		
-		override public function beHit(vx:Number,cy:Number,gjl:Number):void
+		override public function beHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
-			this.theBeHit(vx,cy,gjl);
+			this.theBeHit(cjvx,cjvy,gjl);
 		}
 		
 		override public function getScaleX():int
@@ -785,12 +798,13 @@ package elements.role
 		
 		
 		
-		
-		override public function getGJSZ():Object{
-			return JinengObj[this.gongjizhaoshiArr[this.cgjNum-1]];
+		private var _jinengVO:JinengVO;
+		override public function getJNObj():JinengVO{
+			_jinengVO.getVO(JinengObj[this.gongjizhaoshiArr[this.cgjNum-1]])
+			return _jinengVO;
 		}
 		
-		override public function getGJSZArr():Array
+		override public function getJNObjArr():Array
 		{
 			return this.gongjizhaoshiArr;
 		}
