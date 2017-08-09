@@ -45,7 +45,7 @@ package elements.I
 		 */			
 		function getPlayFrameOver(num:int = 0,isCZ:Boolean = false):Boolean;
 		
-		function getWeight():Number;
+		function getWidth():Number;
 		
 		function theVelocityX(vx:Number):void;
 		function theVelocityY(vy:Number):void;

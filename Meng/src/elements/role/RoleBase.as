@@ -173,7 +173,7 @@ package elements.role
 			return 0;
 		}
 		
-		public function getWeight():Number
+		public function getWidth():Number
 		{
 			// TODO Auto Generated method stub
 			return this.weight;

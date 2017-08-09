@@ -62,7 +62,7 @@ package AI.actionAI
 		 */		
 		private function showAddTiliTX():void
 		{
-			trace(_obj.getWeight());
+			trace(_obj.getWidth());
 			_TXTiliHuifu.setCXSJ(_stopNums);
 			_TXTiliHuifu.show("",_obj);
 		}

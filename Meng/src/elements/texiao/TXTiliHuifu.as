@@ -28,7 +28,7 @@ package elements.texiao
 			this._parent = this._role.getParent();
 			this._parent.addChild(this);
 			
-			this.x = _role.getX()-_role.getWeight()*0.5;
+			this.x = _role.getX()-_role.getWidth()*0.5;
 			this.y = _role.getY();
 			
 			if(__x == 1000){
@@ -48,14 +48,14 @@ package elements.texiao
 		private var chixushijian:int = 60;
 		private var _liziArr:Array = [];
 		override protected function action():void{
-			this.x = _role.getX()-_role.getWeight()*0.5;
+			this.x = _role.getX()-_role.getWidth()*0.5;
 			chixushijian -- ;
 			if(chixushijian>0){
 				if(chixushijian%10==1){
 					var lizi:TXAddTili =  new TXAddTili();
 					lizi.showTx();
 					this.addChild(lizi);
-					lizi.x = Math.random()*_role.getWeight();
+					lizi.x = Math.random()*_role.getWidth();
 					_liziArr.push(lizi);
 					
 				}

@@ -101,8 +101,8 @@ package elements.texiao
 		
 		private function cbkF():void{
 			if(!this._texiaoMc)this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName); 
+//			trace("shiyingTXScale  "+this._role.getShiyingTXScale());
 //			this._texiaoMc.scaleX = this._texiaoMc.scaleY = this._role.getShiyingTXScale(); 
-			trace("shiyingTXScale  "+this._role.getShiyingTXScale());
 			this._texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			this.scaleX =  this._role.getScaleX();
@@ -156,6 +156,9 @@ package elements.texiao
 						var cjvy:Number = this.jinengVO.cjvy;
 						var gjl:Number = this.jinengVO.gjl;
 						/**加入硬直对比 是自己被击退 还是敌人被击退----------------------------------------------------------------------------------------*/
+						
+						
+						
 						if(this.scaleX>0)cjvx*=-1;
 						(this._enemyArr[i] as Ibiont).beHit(cjvx,cjvy,gjl);
 					}
