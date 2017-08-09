@@ -6,10 +6,10 @@ package AI.actionAI
 	import elements.I.Ibiont;
 	import AI.AIBase;
 
-	public class Patrol extends AIBase
+	public class AIPatrol extends AIBase
 	{
 		
-		public function Patrol(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200){
+		public function AIPatrol(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200){
 			super(obj,targetObj,cbk);
 			this.alertDistance = alertDistance;
 		}
@@ -23,9 +23,9 @@ package AI.actionAI
 		 * @return 
 		 * 
 		 */		
-		public static function getInstance(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200):Patrol
+		public static function getInstance(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200):AIPatrol
 		{
-			return new Patrol(obj,targetObj,cbk);
+			return new AIPatrol(obj,targetObj,cbk);
 		}
 
 		/**是否巡逻*/

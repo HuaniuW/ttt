@@ -1,11 +1,11 @@
-package AI
+package AI.aifas
 {
 	import elements.I.IAi;
 	import elements.I.Ibiont;
 	
 	import game.engine.Engine;
-	import AI.actionAI.StandPatrol;
-	import AI.baseAI.TheStand;
+	import AI.actionAI.AIStandPatrol;
+	import AI.baseAI.AIStand;
 
 	public class AIfn1 implements IAi
 	{
@@ -24,14 +24,14 @@ package AI
 		}
 		
 //		private var patrol:Patrol;
-		private var standPatrol:StandPatrol;
+		private var standPatrol:AIStandPatrol;
 		private var commonAtk:MoveNearXAndCommonAtk;
-		private var theStand:TheStand;
+		private var theStand:AIStand;
 		private function getAI():void{
 //			if(!patrol)patrol = Patrol.getInstance(_obj,_targetObj,this.cbk);
-			if(!standPatrol)standPatrol = StandPatrol.getInstance(_obj,_targetObj,this.cbk,_obj.getAlertDistance());
+			if(!standPatrol)standPatrol = AIStandPatrol.getInstance(_obj,_targetObj,this.cbk,_obj.getAlertDistance());
 			if(!commonAtk)commonAtk = new MoveNearXAndCommonAtk(_obj,_targetObj,this.cbk);
-			if(!theStand)theStand = new TheStand(_obj,_targetObj,this.cbk);
+			if(!theStand)theStand = new AIStand(_obj,_targetObj,this.cbk);
 		}
 		
 		/**返回函数*/

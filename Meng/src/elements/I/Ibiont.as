@@ -22,7 +22,7 @@ package elements.I
 		function getAlertDistance():int;
 		function isDie():Boolean;
 		function getStop():void;
-		function getGJSZArr():Array;
+		function getJNObjArr():Array;
 		/**
 		 * 
 		 * @param vx  x方向冲力
@@ -30,7 +30,7 @@ package elements.I
 		 * @param gjl  攻击力
 		 * 
 		 */		
-		function beHit(vx:Number,cy:Number,gjl:Number):void;
+		function beHit(cjvx:Number,cjvy:Number,gjl:Number):void;
 		function getIsBeHitOuting():Boolean;
 		function getIsBeHiting():Boolean;
 		
@@ -78,6 +78,8 @@ package elements.I
 		
 		function bodyMcStop():void;
 		function bodyMcPlay():void;
+		
+		function getShiyingTXScale():Number;
 		
 	}
 }

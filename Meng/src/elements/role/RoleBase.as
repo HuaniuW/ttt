@@ -6,6 +6,7 @@ package elements.role
 	import elements.I.IElementBase;
 	import elements.I.IHit;
 	import elements.I.Ibiont;
+	import elements.jineng.JinengVO;
 	
 	import lzm.starling.swf.display.SwfImage;
 	import lzm.starling.swf.display.SwfMovieClip;
@@ -71,6 +72,8 @@ package elements.role
 		
 		public var _roleLive:RoleLive;
 		public var _roleTili:RoleTili;
+		
+		public var shiyingTXScale:Number = 1;
 		
 		
 		protected var enemyArr:Array = [];
@@ -208,7 +211,7 @@ package elements.role
 			
 		}
 		
-		public function beHit(vx:Number,cy:Number,gjl:Number):void
+		public function beHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
 			// TODO Auto Generated method stub
 			
@@ -266,10 +269,10 @@ package elements.role
 		 * @return 
 		 * 
 		 */		
-		public function getGJSZ():Object
+		public function getJNObj():JinengVO
 		{
 			// TODO Auto Generated method stub
-			return this.gongjizhaoshiArr;
+			return null;
 		}
 		
 		public function theCurLive():Number
@@ -337,7 +340,7 @@ package elements.role
 			
 		}
 		
-		public function getGJSZArr():Array
+		public function getJNObjArr():Array
 		{
 			// TODO Auto Generated method stub
 			return null;
@@ -375,6 +378,12 @@ package elements.role
 		public function bodyMcStop():void
 		{
 			this._bodyMc.play();
+		}
+		
+		public function getShiyingTXScale():Number
+		{
+			// TODO Auto Generated method stub
+			return shiyingTXScale;
 		}
 		
 		

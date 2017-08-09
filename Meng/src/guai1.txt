@@ -12,5 +12,6 @@
 		"alertDistance":300,
 		"beHitAcArr":["beHit","beHit2"],
 		"JsonObj":100,
-		"maxTili":100
+		"maxTili":100,
+		"shiyingTXScale":1.3
 		}

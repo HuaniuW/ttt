@@ -44,12 +44,19 @@ package elements.role
 			_restNums = 100;
 			this._isRest = true;
 		}
-		
-		public function getBeHitTili():void{
+		/**
+		 *被击中后体力开始增长 
+		 * 
+		 */		
+		public function getBeHitTiliStart():void{
 			isTiliOver = false;
 			_curTili++;
 			_restNum = 0;
 //			_isRest = false;
+		}
+		
+		public function isGetRest():Boolean{
+			return _isRest;
 		}
 		
 		private function action():void
@@ -61,7 +68,6 @@ package elements.role
 					this._isRest = false;
 					this._restNum = 0;
 				}
-				
 				return;
 			}
 			
@@ -71,6 +77,25 @@ package elements.role
 			if(_curTili<_maxTili){
 				_curTili+=zzsd;
 			}
+		}
+		
+		private var zzsdJL:Number = 0;
+		/**
+		 *重置体力增长速度 
+		 * @param v
+		 * 
+		 */		
+		public function setZZSD(v:Number):void{
+			zzsdJL = zzsd;
+			this.zzsd = v;
+		}
+		
+		/**
+		 *还原初始体力增长速度 
+		 * 
+		 */		
+		public function HYZZSD():void{
+			zzsd = zzsdJL;
 		}
 		
 		/**

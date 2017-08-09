@@ -31,6 +31,7 @@ package elements.role
 			obj.alertDistance = JsonObj["alertDistance"];
 			obj.beHitAcArr = JsonObj["beHitAcArr"];
 			obj.weight = JsonObj["JsonObj"];
+			obj.shiyingTXScale = JsonObj["shiyingTXScale"];
 		}
 	}
 }

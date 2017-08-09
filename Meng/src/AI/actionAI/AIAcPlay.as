@@ -5,7 +5,7 @@ package AI.actionAI
 	import elements.I.Ibiont;
 	
 	import game.engine.Engine;
-	import AI.baseAI.MoveNear;
+	import AI.baseAI.AIMoveNear;
 	import AI.AIBase;
 	
 	public class AIAcPlay extends AIBase
@@ -42,6 +42,7 @@ package AI.actionAI
 			_acArr = ["atkg1_1","atkg1_2","atkg1_1","atkg1_2","atkg1_1","atkg1_2"];
 			//取第一招 攻击对象
 			_isQishouGJ = true;
+			/**当前招式*/
 			_czhaoshi = _acArr.shift();
 			if(_czhaoshi){
 				AIAtk.getInstance().getObj(this._obj,this._targetObj,_czhaoshi.split("_")[1]*1);	
@@ -83,7 +84,7 @@ package AI.actionAI
 			}
 			
 			if(_isBeHited){
-				if(MoveNear.moveNearX(this._obj,this._targetObj,this.atkDistance)){
+				if(AIMoveNear.moveNearX(this._obj,this._targetObj,this.atkDistance)){
 					_obj.moveStop();
 					this._isBeHited = false;
 				}
@@ -93,7 +94,7 @@ package AI.actionAI
 			
 			/**如果是起手攻击 先走近攻击距离*/
 			if(this._isQishouGJ){
-				if(MoveNear.moveNearX(this._obj,this._targetObj,this.atkDistance)){
+				if(AIMoveNear.moveNearX(this._obj,this._targetObj,this.atkDistance)){
 					_obj.moveStop();
 					this._isQishouGJ = false;
 					getAtk();

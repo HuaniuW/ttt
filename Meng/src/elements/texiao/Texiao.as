@@ -38,7 +38,7 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		public function show(txMCName:String,role:Ibiont,_x:Number=0,_y:Number=0,numChangeCeng:int=100):void{
+		public function show(txMCName:String,role:Ibiont=null,_x:Number=0,_y:Number=0,numChangeCeng:int=100):void{
 			this._txMCName = txMCName;
 			this._numChangeCeng = numChangeCeng;
 			this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName);
@@ -63,8 +63,6 @@ package elements.texiao
 			Engine.createEngine().push(this.action);
 			
 			
-//			this._parent.addChildAt(this,this._parent.numChildren-1);
-//			trace("--------------> "+this.parent.getChildIndex(this._role));
 		}
 		
 		
@@ -87,6 +85,7 @@ package elements.texiao
 				this.removeFromParent();
 				TexiaoPool.getInstance().getInPool(this._txMCName,this);
 				TXMcPool.getInstance().getInPool(this._txMCName,this._texiaoMc);
+				Engine.createEngine().pop(this.action);
 				this._texiaoMc = null;
 			}
 		}

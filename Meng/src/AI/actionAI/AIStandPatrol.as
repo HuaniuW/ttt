@@ -2,9 +2,9 @@ package AI.actionAI
 {
 	import elements.I.Ibiont;
 	
-	public class StandPatrol extends Patrol
+	public class AIStandPatrol extends AIPatrol
 	{
-		public function StandPatrol(obj:Ibiont, targetObj:Ibiont, cbk:Function, alertDistance:int=200)
+		public function AIStandPatrol(obj:Ibiont, targetObj:Ibiont, cbk:Function, alertDistance:int=200)
 		{
 			super(obj, targetObj, cbk, alertDistance);
 		}
@@ -19,9 +19,9 @@ package AI.actionAI
 		 * @return 
 		 * 
 		 */		
-		public static function getInstance(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200):StandPatrol
+		public static function getInstance(obj:Ibiont,targetObj:Ibiont,cbk:Function,alertDistance:int = 200):AIStandPatrol
 		{
-			return new StandPatrol(obj,targetObj,cbk,alertDistance);
+			return new AIStandPatrol(obj,targetObj,cbk,alertDistance);
 		}
 		
 		

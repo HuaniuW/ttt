@@ -41,7 +41,7 @@ package controls
 			bd1 = obj1.getHitMc().bounds.clone();
 			bd2 = obj2.getBeHitMc().bounds.clone();
 			//bounds的X 不精确
-			var pianyi:int = obj1.getGJSZ()["gjkpy"];
+			var pianyi:int = obj1.getJNObj()["gjkpy"];
 			if(obj1.getBeHitMc()){
 //				trace("py   "+pianyi);
 				bd1.x =  obj1.getScaleX() > 0?obj1.getX()-bd1.width-pianyi:obj1.getX()+pianyi;

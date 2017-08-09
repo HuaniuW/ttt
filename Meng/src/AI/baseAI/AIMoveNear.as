@@ -2,9 +2,9 @@ package AI.baseAI
 {
 	import elements.I.Ibiont;
 
-	public class MoveNear
+	public class AIMoveNear
 	{
-		public function MoveNear()
+		public function AIMoveNear()
 		{
 		}
 		
@@ -18,13 +18,13 @@ package AI.baseAI
 				obj.moveL();
 //				trace("左移动");
 			}else{
-				
 				if(targetObj.getX() - obj.getX()>0){
+//					trace("R");
 					obj.moveR();	
 				}else{
+//					trace("L");
 					obj.moveL();	
 				}
-				
 				return true;
 			}
 			return false;	

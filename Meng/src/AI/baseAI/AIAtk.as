@@ -29,7 +29,7 @@ package AI.baseAI
 		}
 		
 		public function getGJDastance():Number{
-			return JinengObj[_role.getGJSZArr()[_nums-1]]["atkjuli"];
+			return JinengObj[_role.getJNObjArr()[_nums-1]]["atkjuli"];
 		}
 		
 		public function getAc():void{

@@ -1,6 +1,6 @@
 package elements.grx
 {
-	import AI.AIfn2;
+	import AI.aifas.AIfn2;
 	
 	import Lir.GetJson;
 	
@@ -44,6 +44,8 @@ package elements.grx
 		} 
 		
 		private function cbk(obj):void{
+			
+			
 			ObjVO.getInstance().getVO(obj,this);
 			if(!this._roleLive)this._roleLive = new RoleLive();
 			this.curLive = this.maxLive;
