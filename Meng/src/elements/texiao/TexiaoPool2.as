@@ -26,11 +26,11 @@ package elements.texiao
 		private var _objPool:Object = {};
 		
 		private var _txClassName:String;
-		public function getOnTexiao(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
+		public function getOnTexiao(_name:String,role:Ibiont,cbk=null,isYanChi:Boolean = true,_x:Number=0,_y:Number=0,num:int=100):void{
 			var obj:Object = JinengObj[_name];
 			_txClassName = obj["className"];
 			var gjtx:DisplayObject = getTexiao(obj["jnName"]);
-			gjtx["getSJObj"](obj,role);
+			gjtx["getSJObj"](obj,role,cbk,isYanChi);
 		}
 		
 		public function getTexiao(_name:String):DisplayObject{

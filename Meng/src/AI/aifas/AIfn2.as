@@ -38,7 +38,7 @@ package AI.aifas
 		}
 		
 		/**返回函数*/
-		public function cbk(obj:Object = null):void{
+		protected function cbk(obj:Object = null):void{
 			this.isRandon = true;
 		}
 		
@@ -51,9 +51,9 @@ package AI.aifas
 		}
 		
 		
-		private var isRandon:Boolean = false;
+		protected var isRandon:Boolean = false;
 		
-		public function getRandom():void{
+		protected function getRandom():void{
 			if(isRandon){
 				isRandon = false;
 				reSetAll();
@@ -72,12 +72,12 @@ package AI.aifas
 						
 		}
 		
-		public function reSetAll():void
+		protected function reSetAll():void
 		{
 		}
 		
 		
-		public function stopAI():void{
+		protected function stopAI():void{
 			Engine.createEngine().pop(this.getRandom);
 		}
 		

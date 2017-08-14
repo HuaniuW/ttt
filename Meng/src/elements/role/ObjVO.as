@@ -29,9 +29,14 @@ package elements.role
 			obj.jumpGJArr = JsonObj["jumpGJArr"];
 			obj.jinengArr = JsonObj["jinengArr"];
 			obj.alertDistance = JsonObj["alertDistance"];
-			obj.beHitAcArr = JsonObj["beHitAcArr"];
 			obj.weight = JsonObj["JsonObj"];
 			obj.shiyingTXScale = JsonObj["shiyingTXScale"];
+			obj.JNArrObj = JsonObj["JNArrObj"];
+			obj.yanchidengji = JsonObj["yanchidengji"];
+			obj.labelBeHit = JsonObj["labelBeHit"];
+			obj.labelRun = JsonObj["labelRun"];
+			obj.labelStand = JsonObj["labelStand"];
+			obj.labelAvoid = JsonObj["labelAvoid"];
 		}
 	}
 }

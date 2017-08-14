@@ -40,6 +40,7 @@ package elements.role
 		{
 			if(!this._beHitCorlor)this._beHitCorlor  = new BeHitColor();
 			if(!_jinengVO)_jinengVO = new JinengVO();
+			if(!acStopNums)acStopNums = ACStopNums.getInstance();
 		}
 		
 		
@@ -251,6 +252,7 @@ package elements.role
 				isStandUp = true;
 				isStandUping = true;
 				this._bodyMc.gotoAndPlay("standUp");
+				acStopNums.stopNums(15,this);
 			}
 			
 			if(this.isStandUping){
@@ -268,6 +270,7 @@ package elements.role
 		
 		
 		private function zuduan():Boolean{
+			
 			if(this.isBeHitOuting||this.isBeHiting||this.isStandUping||_isResting||this.isDie()||this._isDongzuoing)return true;
 			return false;
 		}
@@ -284,7 +287,10 @@ package elements.role
 		protected var _DZcanMoveFrame:int = 1;
 		
 		protected function getDongzuo(label:String,showTXFrameNum:int,DZcbk:Function,DZcanMoveFrame:int=1):void{
+//			trace(">>>>>>>>>>>>>>3  "+this.zuduan()+"   "+_isDongzuoing);
+//			trace(this.isBeHitOuting + "   "+this.isBeHiting +"  "+this.isStandUping);
 			if(this.zuduan()||isAvoiding)return;
+//			trace(">>>>>>>>>>>>>>3   "+_isDongzuo);
 			if(!_isDongzuo){
 				this.ztreSet();
 				_isDongzuo = true;
@@ -295,7 +301,8 @@ package elements.role
 					_DZcanMoveFrame = showTXFrameNum-1;
 				}
 				_DZcbk = DZcbk;
-				
+
+//				trace(">>>>>>>>>>>>>>4");
 				_isDongzuoing = true;
 			}
 		}
@@ -397,7 +404,7 @@ package elements.role
 				this.isAvoid = true;
 				isAvoiding = true;
 				if(!xiaohaotili(10))return;
-				this._bodyMc.gotoAndPlay("avoid");
+				this._bodyMc.gotoAndPlay(labelAvoid);
 				this.body.velocity.x = 0;
 				this.body.velocity.x+=this.scaleX*690;
 				this.body.velocity.y-=400;
@@ -440,7 +447,6 @@ package elements.role
 			
 			if(!this._isJumping)this._bodyMc.stop();
 			TweenLite.to(this._bodyMc,0.1,{"onComplete":onComplete});
-			
 			theVelocityX(cjvx);
 			/**特效*/
 			TexiaoPool.getInstance().getOnTexiao("mc_ba1_gjtx",this,0,-60);
@@ -457,7 +463,7 @@ package elements.role
 			}
 			
 			
-			if(gjl/this.yingzhi>=3){
+			if(gjl/this.yingzhi>=2){
 				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
@@ -466,12 +472,12 @@ package elements.role
 			}
 			
 			
-			if(gjl/this.yingzhi>=2){
-				this.ztreSet();
-				this.isBeHitOut = true;
-				this.beHitOut();
-				return;
-			}
+//			if(gjl/this.yingzhi>=2){
+//				this.ztreSet();
+//				this.isBeHitOut = true;
+//				this.beHitOut();
+//				return;
+//			}
 			
 			//			this.body.velocity.y-=300;
 			
@@ -503,7 +509,7 @@ package elements.role
 					return;
 				}
 				this.isBeHiting = true;
-				this._bodyMc.gotoAndPlay(this.beHitAcArr[0]);
+				this._bodyMc.gotoAndPlay(labelBeHit);
 				return;
 			}
 		}
@@ -556,6 +562,9 @@ package elements.role
 			_isDongzuo = false;
 			_isDongzuoing = false;
 			
+			
+			acStopNums.mcPlay();
+			
 		}
 		
 		
@@ -577,7 +586,7 @@ package elements.role
 			this.ztreSet();
 			isStand = true;
 			_isInAir = false;
-			this._bodyMc.gotoAndPlay("stand");
+			this._bodyMc.gotoAndPlay(labelStand);
 		}
 		
 		
@@ -605,7 +614,7 @@ package elements.role
 			
 			if(this.isRunBegin&&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				this.isRunBegin = false;
-				this._bodyMc.gotoAndPlay("run");
+				this._bodyMc.gotoAndPlay(labelRun);
 				this.isRunStop = true;
 			}
 			
@@ -628,7 +637,7 @@ package elements.role
 			
 			if(this.isRunBegin&&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				this.isRunBegin = false;
-				this._bodyMc.gotoAndPlay("run");
+				this._bodyMc.gotoAndPlay(labelRun);
 				this.isRunStop = true;
 			}
 			
@@ -750,8 +759,13 @@ package elements.role
 //				gjendNum = getJNObj()["bcf"];
 //			}
 			
+			
 			if(this._bodyMc.currentLabel == "stand"){
 				return true;
+			}
+			
+			if(zuduan()){
+				return false;
 			}
 			
 			return !_isDongzuoing;
@@ -849,6 +863,11 @@ package elements.role
 		override public function getTheDongzuo(label:String, showTXFrameNum:int, DZcbk:Function,DZcanMoveFrame:int=1):void
 		{
 			this.getDongzuo(label, showTXFrameNum, DZcbk,DZcanMoveFrame);
+		}
+		
+		override public function getACStopNums(nums:int):void
+		{
+			acStopNums.stopNums(nums,this);
 		}
 		
 		

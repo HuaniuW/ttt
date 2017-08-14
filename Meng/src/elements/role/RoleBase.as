@@ -48,7 +48,6 @@ package elements.role
 		
 		public var alertDistance:int = 200;
 		
-		public var beHitAcArr:Array = [];
 		
 		/**重量 硬直*/
 		public var weight:Number = 0;
@@ -75,6 +74,21 @@ package elements.role
 		
 		public var shiyingTXScale:Number = 1;
 		
+		public var JNArrObj:Object;
+		
+		/**
+		 *延迟等级 
+		 */		
+		public var yanchidengji:int = 0;
+		
+		public var labelRun:String = "run";
+		public var labelStand:String = "stand";
+		public var labelBeHit:String = "beHit";
+		public var labelAvoid:String = "avoid";
+		
+		
+		protected var acStopNums:ACStopNums;
+		
 		
 		protected var enemyArr:Array = [];
 		
@@ -88,6 +102,7 @@ package elements.role
 		}
 		
 		private var shape:Polygon;
+		
 		private function view(_x:Number,_y:Number,_w:Number,_h:Number):void
 		{
 			body = new Body(BodyType.DYNAMIC,new Vec2(_x,_y));
@@ -189,6 +204,7 @@ package elements.role
 		
 		public function theVelocityY(vy:Number):void
 		{
+			this.body.velocity.y = 0;
 			this.body.velocity.y+=vy;
 		}
 		
@@ -372,18 +388,46 @@ package elements.role
 		
 		public function bodyMcPlay():void
 		{
-			this._bodyMc.stop();
+			this._bodyMc.play();
 		}
 		
 		public function bodyMcStop():void
 		{
-			this._bodyMc.play();
+			this._bodyMc.stop();
 		}
 		
 		public function getShiyingTXScale():Number
 		{
-			// TODO Auto Generated method stub
 			return shiyingTXScale;
+		}
+		
+		public function getYingzhi():int
+		{
+			return yingzhi;
+		}
+		
+		public function getJNArrObj():Object
+		{
+			// TODO Auto Generated method stub
+			return JNArrObj;
+		}
+		
+		public function getYanChiDengji():int
+		{
+			// TODO Auto Generated method stub
+			return yanchidengji;
+		}
+		
+		public function getACStopNums(nums:int):void
+		{
+			// TODO Auto Generated method stub
+			
+		}
+		
+		public function getGJL():int
+		{
+			// TODO Auto Generated method stub
+			return gongjili;
 		}
 		
 		

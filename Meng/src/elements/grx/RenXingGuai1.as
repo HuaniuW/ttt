@@ -1,6 +1,7 @@
 package elements.grx
 {
 	import AI.aifas.AIfn2;
+	import AI.aifas.AIfn3;
 	
 	import Lir.GetJson;
 	
@@ -58,9 +59,9 @@ package elements.grx
 			this.curTili = this.maxTili;
 			_roleTili.maxTili = this.maxTili;
 			_roleTili.curTili = this.curTili;
-			
-			AIfn2.getInstance().getAiObj(this,Globals.player);
 			this.enemyArr = [Globals.player];
+			
+			AIfn3.getInstance().getAiObj(this,Globals.player);
 		}
 		
 		public function getInEnemyArr():void{

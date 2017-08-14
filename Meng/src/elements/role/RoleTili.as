@@ -51,6 +51,7 @@ package elements.role
 		public function getBeHitTiliStart():void{
 			isTiliOver = false;
 			_curTili++;
+			if(_curTili>=_maxTili)_curTili = _maxTili;
 			_restNum = 0;
 //			_isRest = false;
 		}

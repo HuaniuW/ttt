@@ -81,5 +81,21 @@ package elements.I
 		
 		function getShiyingTXScale():Number;
 		
+		function getYingzhi():int;
+		
+		function getJNArrObj():Object;
+		
+		/**
+		 *取到延迟等级 
+		 * @return 
+		 * 
+		 */		
+		function getYanChiDengji():int;
+		
+		function getACStopNums(nums:int):void;
+		
+		function getGJL():int;
+		
+		
 	}
 }

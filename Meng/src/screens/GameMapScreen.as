@@ -115,8 +115,8 @@ package screens
 //					trace(McClass);
 					var theMcObj:DisplayObject = new McClass(mc,{},obj.x,obj.y,mc.width-10,mc.height,Napes.instance.space);
 					addChild(theMcObj);
-//					theMcObj.x = obj.x;
-//					theMcObj.y = obj.y;
+					theMcObj.x = obj.x;
+					theMcObj.y = obj.y;
 				}
 			}
 			c1.dispose();

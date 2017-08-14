@@ -102,10 +102,21 @@ package elements.jineng
 		 */		
 		public var JNIcon:String = "";
 		
+		/**
+		 *技能类型 用来判断是什么类型 技能 用来做特殊处理  
+		 * 比如：硬直的处理 
+		 */		
+		public var JNType:String = "";
+		
+		/**
+		 *起手延迟  动作起手的时候的延迟停顿 给出反应时间 
+		 */		
+		public var qishouyanchi:int = 0;
+		
 		
 		
 		public function getVO(obj:Object):void{
-			jnName = obj["jnName"];
+			JNIcon = jnName = obj["jnName"];
 			txMCName = obj["txMCName"];
 			className = obj["className"];
 			cbkF = obj["cbkF"];
@@ -123,6 +134,9 @@ package elements.jineng
 			gjl = obj["gjl"];
 			xhtl = obj["xhtl"];
 			xhh = obj["xhh"];
+			JNSound = obj["JNSound"];
+			JNType = obj["JNType"];
+			qishouyanchi = obj["qishouyanchi"];
 		}
 	}
 }

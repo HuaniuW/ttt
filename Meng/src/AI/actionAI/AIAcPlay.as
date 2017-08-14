@@ -11,9 +11,10 @@ package AI.actionAI
 	public class AIAcPlay extends AIBase
 	{
 		private var _acArr:Array = [];
-		private var _isAction:Boolean = false;
+		protected var _isAction:Boolean = false;
 		private var _isQishouGJ:Boolean = false;
 		private var atkDistance:int = 180;
+		protected var isDiyizhao:Boolean = true;
 		
 		
 		public function AIAcPlay(obj:Ibiont, targetObj:Ibiont, cbk:Function)
@@ -30,7 +31,7 @@ package AI.actionAI
 		}
 		
 		
-		private var _czhaoshi:String = "";
+		protected var _czhaoshi:String = "";
 		/**
 		 *取到攻击招式列表数组 
 		 * @param arr
@@ -39,9 +40,10 @@ package AI.actionAI
 		public function getAcArr(arr:Array):void{
 			_acArr = arr;
 			
-			_acArr = ["atkg1_1","atkg1_2","atkg1_1","atkg1_2","atkg1_1","atkg1_2"];
+//			_acArr = ["atkg1_1","atkg1_2","atkg1_1","atkg1_2","atkg1_1","atkg1_2"];
 			//取第一招 攻击对象
 			_isQishouGJ = true;
+			isDiyizhao = true;
 			/**当前招式*/
 			_czhaoshi = _acArr.shift();
 			if(_czhaoshi){
@@ -54,7 +56,7 @@ package AI.actionAI
 			Engine.createEngine().push(this.action);
 		}
 		
-		override public function cbk(obj:Object=null):void
+		override protected function cbk(obj:Object=null):void
 		{
 			// TODO Auto Generated method stub
 			super.cbk(obj);
@@ -66,7 +68,7 @@ package AI.actionAI
 			super.getAiObj(obj, targetObj);
 		}
 		
-		override public function reSetAll():void
+		override protected function reSetAll():void
 		{
 			// TODO Auto Generated method stub
 			super.reSetAll();
@@ -106,7 +108,9 @@ package AI.actionAI
 				_isAction = false;
 				if(_acArr.length){
 					_czhaoshi = _acArr.shift();
+					isDiyizhao = false;
 					getAtk();
+					
 				}else{
 					_cbk();
 					Engine.createEngine().pop(this.action);
@@ -116,7 +120,7 @@ package AI.actionAI
 			
 		}
 		
-		private function getAtk():void{
+		protected function getAtk():void{
 			if(_czhaoshi){
 				AIAtk.getInstance().getObj(this._obj,this._targetObj,_czhaoshi.split("_")[1]*1);	
 				AIAtk.getInstance().getAc();

@@ -1,7 +1,7 @@
 {
 		"gongjili":80,
 		"fangyuli":60,
-		"yingzhi":600,
+		"yingzhi":100,
 		"minSpeed":160,
 		"maxSpeed":360,
 		"gongjizhaoshiArr":["atkg1_1","atkg1_2"],
@@ -10,8 +10,18 @@
 		"jinengArr":[],
 		"gjNum":0,
 		"alertDistance":300,
-		"beHitAcArr":["beHit","beHit2"],
 		"JsonObj":100,
-		"maxTili":100,
-		"shiyingTXScale":1.3
-		}
+		"maxTili":1000,
+		"shiyingTXScale":1.3,
+		"JNArrObj":{"t1":[{"jinengName":"atkg1_1","jilv1":30,"jilv2":100,"type":"pt"},{"jinengName":["atkg1_1","atkg1_2","atkg1_1","chongjijian"],"jilv1":0,"jilv2":30,"type":"pt"}]},
+		"yanchidengji":3,
+		"labelBeHit":"beHit",
+		"labelRun":"run",
+		"labelStand":"stand",
+		"labelAvoid":"avoid",
+		"zhuangtaiqiehuan":
+			{
+				"zhuangtai2":{"xueliang":0.6,"labelRun":"run2","labelStand":"stand2","gongjili":400,"fangyuli":200,"maxSpeed":500},
+				"zhuangtai3":{"xueliang":0.3,"labelRun":"run2","labelStand":"stand2","gongjili":800,"fangyuli":200,"maxSpeed":800}
+			}
+}

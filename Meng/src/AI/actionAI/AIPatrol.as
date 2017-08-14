@@ -30,7 +30,7 @@ package AI.actionAI
 
 		/**是否巡逻*/
 		private var isPatrol:Boolean = false;
-		public override function reSetAll():void{
+		protected override function reSetAll():void{
 			atX = 0;
 			isGetAtX = false;
 		}
@@ -48,8 +48,8 @@ package AI.actionAI
 			if(!isActive){
 				if(Math.abs(_targetObj.getX() - _obj.getX())<=this.alertDistance){
 					this.isActive = true;
-					this._cbk();		
 					trace("发现目标 巡逻结束");
+					this._cbk();		
 					return;
 				}
 				getPatrolMove();
