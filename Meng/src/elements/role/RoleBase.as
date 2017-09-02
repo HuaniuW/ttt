@@ -74,7 +74,15 @@ package elements.role
 		
 		public var shiyingTXScale:Number = 1;
 		
+		/**
+		 *攻击类型 数组OBJ  切换时调用 
+		 */		
 		public var JNArrObj:Object;
+		
+		/**
+		 *攻击类型 
+		 */		
+		public var GJtype:String = "t1";
 		
 		/**
 		 *延迟等级 
@@ -85,6 +93,11 @@ package elements.role
 		public var labelStand:String = "stand";
 		public var labelBeHit:String = "beHit";
 		public var labelAvoid:String = "avoid";
+		
+		/**
+		 *状态切换 切换哪些内容的 OBJ 
+		 */		
+		public var zhuangtaiqiehuan:Object;
 		
 		
 		protected var acStopNums:ACStopNums;
@@ -426,8 +439,21 @@ package elements.role
 		
 		public function getGJL():int
 		{
-			// TODO Auto Generated method stub
 			return gongjili;
+		}
+		
+		public function getGJType():String
+		{
+			return this.GJtype;
+		}
+		
+		public function zhuangtaiChange(obj:Object):void
+		{
+			for(var key:String in obj){
+				if(this.hasOwnProperty(key)){
+					this[key] = obj[key];
+				}
+			}
 		}
 		
 		

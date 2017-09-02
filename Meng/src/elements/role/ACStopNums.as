@@ -31,7 +31,6 @@ package elements.role
 			_maxNums = maxNums;
 			_role = role;
 			_role.bodyMcStop();
-			trace(" >>   "+maxNums);
 			Engine.createEngine().push(action);
 		}
 		

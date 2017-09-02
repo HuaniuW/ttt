@@ -96,6 +96,20 @@ package elements.I
 		
 		function getGJL():int;
 		
+		/**
+		 * 
+		 * @param obj 攻击状态变化的OBJ内容
+		 * 
+		 */		
+		function zhuangtaiChange(obj:Object):void;
+		
+		/**
+		 *取到攻击技能组合类型 
+		 * @return 
+		 * 
+		 */		
+		function getGJType():String;
+		
 		
 	}
 }

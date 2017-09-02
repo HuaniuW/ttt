@@ -12,6 +12,7 @@ package elements.grx
 	import elements.role.RoleLive;
 	import elements.role.RoleO;
 	import elements.role.RoleTili;
+	import elements.role.ZhuangTaiChange;
 	
 	import game.myGame.PifuChange;
 	
@@ -25,6 +26,7 @@ package elements.grx
 	
 	public class RenXingGuai1 extends RoleO
 	{
+		private var _zhuangTaiChange:ZhuangTaiChange;
 		public function RenXingGuai1(mc:SwfMovieClip, dataObj:Object, _x:Number, _y:Number, w:Number, h:Number, space:Space)
 		{
 			super(mc, dataObj, _x, _y, w, h, space);
@@ -41,6 +43,8 @@ package elements.grx
 			
 //			_bodyMc.filter = BlurFilter.createGlow(0xeeee00);
 			GetJson.getInstance().getLoad("guai1.txt",this.cbk);
+			
+			
 			
 		} 
 		
@@ -61,7 +65,11 @@ package elements.grx
 			_roleTili.curTili = this.curTili;
 			this.enemyArr = [Globals.player];
 			
-			AIfn3.getInstance().getAiObj(this,Globals.player);
+			
+			if(!_zhuangTaiChange)_zhuangTaiChange = ZhuangTaiChange.getInstance();
+			_zhuangTaiChange.getObj(this.zhuangtaiqiehuan,this);
+			
+//			AIfn3.getInstance().getAiObj(this,Globals.player);
 		}
 		
 		public function getInEnemyArr():void{

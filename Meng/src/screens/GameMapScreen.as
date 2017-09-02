@@ -70,6 +70,7 @@ package screens
 			var objName:String;
 			var linkName:String;
 			var img:Image;
+			var spr:SwfSprite;
 			var mc:SwfMovieClip;
 			var obj:DisplayObject;
 			var isCameraUpDown:Boolean = false;
@@ -82,20 +83,35 @@ package screens
 					typeName = linkName.split("_")[1];
 					img = _gMgr.assetMgr.createImage(linkName);
 					if(typeName == "yj"){
-						
-						addChild(img);
-						img.x = obj.x;
-						img.y = obj.y;
-						
-						
-						
-						yuanjingArr.push({"ox":0,"oy":0,"instance":img,"name":objName,"ratio":0.5});
-						continue;	
+						continue;
 					}
+					
+					
 //					trace("img>  "+linkName+"   width  "+img.width+" x "+obj.x+" y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
 					var ClassName:String = "elements."+typeName+"::"+CharCase.friUp(objName);
-//					trace("className   "+ClassName+"      "+img.width+"    "+img.height);
+					//					trace("className   "+ClassName+"      "+img.width+"    "+img.height);
 					var ClassReference:Class = getDefinitionByName(ClassName) as Class;
+					if(typeName == "role"||typeName == "grx"){
+						trace("linkName  "+linkName);
+						var s:Array = linkName.split("_");
+						var theLinkName:String ="mc";
+						for(var t:int in s){
+							if(t>0)theLinkName +=("_"+s[t]);
+						}
+						mc = _gMgr.assetMgr.createMovieClip(theLinkName);
+						mc.gotoAndStop(0);
+//						//					trace("mc>   "+linkName+"   width:  "+mc.width+"  x "+obj.x+"  y "+obj.y+"  objName:  "+objName+"  typeName: "+typeName);
+						var mcClassName2:String = "elements."+typeName+"::"+CharCase.friUp(objName);
+//						//					trace("mc>> "+mcClassName);
+						var McClass2:Class = getDefinitionByName(mcClassName2) as Class;
+//						//					trace(McClass);
+						var theMcObj2:DisplayObject = new McClass2(mc,{},obj.x,obj.y,mc.width-10,mc.height,Napes.instance.space);
+						addChild(theMcObj2);
+						theMcObj2.x = obj.x;
+						theMcObj2.y = obj.y;
+						continue;	
+					}
+					
 					var theObj:DisplayObject = new ClassReference(obj.x,obj.y,img.width,img.height,img,Napes.instance.space);
 					addChild(theObj);
 					
@@ -117,6 +133,31 @@ package screens
 					addChild(theMcObj);
 					theMcObj.x = obj.x;
 					theMcObj.y = obj.y;
+					continue;
+				}
+				
+				if(obj is SwfSprite){
+					linkName = (obj as SwfSprite).classLink;
+					objName = linkName.split("_").pop();
+					typeName = linkName.split("_")[1];
+					spr = _gMgr.assetMgr.createSprite(linkName);
+					addChild(spr);
+					spr.x = obj.x;
+					spr.y = obj.y;
+					if(typeName == "yj1"){
+						trace(">>???");
+						yuanjingArr.push({"ox":0,"oy":0,"instance":spr,"name":typeName,"ratio":0.2});
+						continue;
+					}else if(typeName == "yj2"){
+						yuanjingArr.push({"ox":0,"oy":0,"instance":spr,"name":typeName,"ratio":0.4});
+						continue;
+					}else if(typeName == "qj1"){
+						yuanjingArr.push({"ox":0,"oy":0,"instance":spr,"name":typeName,"ratio":-0.2});
+						continue;
+					}else if(typeName == "bd"){
+						yuanjingArr.push({"ox":0,"oy":0,"instance":spr,"name":typeName,"ratio":0.85});
+						continue;
+					}
 				}
 			}
 			c1.dispose();
@@ -134,7 +175,7 @@ package screens
 //			trace(Globals.player.x);
 //			trace("------------------------------------------>>"+Globals.player.body.graphic.x);
 //			trace("stage>>:  "+Starling.current.stage.stageWidth);
-			_camera = new StarlingCameraFocus(Starling.current.stage,this,Globals.player.body.graphic,yuanjingArr,true,Starling.current.stage.stageWidth,isUpDown);
+			_camera = new StarlingCameraFocus(Starling.current.stage,this,Globals.player,yuanjingArr,true,Starling.current.stage.stageWidth,true);
 			Engine.createEngine().push(_camera.update);
 			
 			if(isUpDown){
@@ -144,7 +185,8 @@ package screens
 				_camera.setFocusPosition(Starling.current.stage.stageWidth*0.5,Starling.current.stage.stageHeight*0.6);
 			}
 			
-//						_camera.zoomFocus(0.7,1);
+			_camera.zoomFocus(0.8);
+			_camera.setFocusPosition(Starling.current.stage.stageWidth*0.5,Starling.current.stage.stageHeight*0.65);
 		}
 		
 		

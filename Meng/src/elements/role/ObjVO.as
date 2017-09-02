@@ -37,6 +37,7 @@ package elements.role
 			obj.labelRun = JsonObj["labelRun"];
 			obj.labelStand = JsonObj["labelStand"];
 			obj.labelAvoid = JsonObj["labelAvoid"];
+			obj.zhuangtaiqiehuan = JsonObj["zhuangtaiqiehuan"];
 		}
 	}
 }

@@ -405,6 +405,7 @@ package elements.role
 				isAvoiding = true;
 				if(!xiaohaotili(10))return;
 				this._bodyMc.gotoAndPlay(labelAvoid);
+				this.body.velocity.y = 0;
 				this.body.velocity.x = 0;
 				this.body.velocity.x+=this.scaleX*690;
 				this.body.velocity.y-=400;
@@ -674,6 +675,7 @@ package elements.role
 			if(this._bodyMc.currentLabel=="jumpUp" &&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				if(!this.isJumpUp){
 					this.isJumpUp = true;
+					this.body.velocity.y = 0;
 					this.body.velocity.y-=jumpPow;
 					_isInAir = true;
 					jumpUpBegin = false;

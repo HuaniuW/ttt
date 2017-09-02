@@ -1,0 +1,14 @@
+<TextureAtlas imagePath="gameScreen1.png">
+  <SubTexture name="img_jing_cao2" x="790" y="1197" width="138" height="270"/>
+  <SubTexture name="img_jing_cao1" x="1416" y="1389" width="150" height="186"/>
+  <SubTexture name="img_grx_guai1_RenXingGuai1" x="1796" y="1003" width="174" height="430" frameX="0" frameWidth="175" frameY="0" frameHeight="431"/>
+  <SubTexture name="img_role_jc_role" x="634" y="1197" width="154" height="338" frameX="0" frameWidth="155" frameY="0" frameHeight="340"/>
+  <SubTexture name="img_jing_yun3" x="0" y="511" width="2000" height="490"/>
+  <SubTexture name="img_jing_yun2" x="0" y="1003" width="1002" height="192"/>
+  <SubTexture name="img_jing_yun1" x="0" y="0" width="2000" height="509"/>
+  <SubTexture name="img_jing_yueqiu" x="1004" y="1003" width="410" height="410"/>
+  <SubTexture name="img_jing_shitou1" x="1568" y="1389" width="165" height="153"/>
+  <SubTexture name="img_jing_yinying1" x="1416" y="1003" width="378" height="384"/>
+  <SubTexture name="img_jing_cao3" x="0" y="1197" width="354" height="258"/>
+  <SubTexture name="img_jing_cao4" x="356" y="1197" width="276" height="324"/>
+</TextureAtlas>

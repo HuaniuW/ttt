@@ -13,7 +13,7 @@ package controls
 		
 		
 		
-		public static var currentC:String = "spr_s_s1";
+		public static var currentC:String = "spr_s_s2";
 		
 		
 		public static var isKeyBorad:Boolean = true;

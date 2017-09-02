@@ -35,7 +35,6 @@ package elements.role
 			GetJson.getInstance().getLoad("test.txt",this.cbk);
 			PifuChange.getInstance().getAllPifuChange(mc,GameManager.getInstance().assetMgr,"ww1");
 			BtnEventDispancher.getInstance().addEventListener(BtnEvent.BTN_CLICK,this.onBtn1);
-			
 		}
 		
 		private var gjtx:GJTexiao1;

@@ -97,7 +97,7 @@ package elements.texiao
 			this._framelabel = framelabel;
 			this._numshow = showTXFrameNums;
 //			trace(framelabel+"   "+showTXFrameNums);
-			trace("yanchidengji> "+_role.getYanChiDengji());
+//			trace("yanchidengji> "+_role.getYanChiDengji());
 			
 			this._role.getTheDongzuo(framelabel,showTXFrameNums,cbkF,jinengVO.DZcanMoveFrame);
 			if(_isYanChi){

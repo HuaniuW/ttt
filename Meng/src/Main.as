@@ -25,7 +25,7 @@ package
 			//note5 2560×1440
 			addEvent();
 //			LoadingScreen.getInstance().loadLoadingPage(this,["loadingPage"],GameEvent.THELOADINGPAGE,LogoAssets,"GameLogo");
-			LoadingScreen.getInstance().show(this,["UI","rolejc2","texiao"],GameEvent.LODINGOVER);
+			LoadingScreen.getInstance().show(this,["UI","rolejc2","texiao","gameScreen1"],GameEvent.LODINGOVER);
 		}
 		
 		
@@ -37,7 +37,7 @@ package
 		
 		private function getLoadingPage(e:GameEvent):void
 		{
-			LoadingScreen.getInstance().show(this,["UI","rolejc2","texiao"],GameEvent.LODINGOVER);
+			LoadingScreen.getInstance().show(this,["UI","rolejc2","texiao","gameScreen1"],GameEvent.LODINGOVER);
 		}
 		
 		private function onLoadingOver(e:GameEvent):void

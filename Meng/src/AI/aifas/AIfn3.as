@@ -66,7 +66,7 @@ package AI.aifas
 			_obj = obj;
 			_targetObj = targetObj;
 			_JNObj = obj.getJNArrObj();
-			_cJNArr = _JNObj["t1"];
+			_cJNArr = _JNObj[_obj.getGJType()];
 			jichuAI();
 			Engine.createEngine().push(random);
 		}
@@ -88,6 +88,7 @@ package AI.aifas
 				_obj.moveStop();
 				isRandom = true;
 				isAction = false;
+				jishiNums = 0;
 				return;
 			}
 			
@@ -99,8 +100,6 @@ package AI.aifas
 			}
 			
 //			trace(_obj.getIsBeHiting()+"       "+_obj.getIsBeHitOuting());
-			
-			
 //			trace("isRandom "+isRandom);
 			
 			
@@ -112,6 +111,12 @@ package AI.aifas
 			}
 			
 //			trace(JNAtkDistance);
+			
+			if(JNAtkDistance == -1){
+				//没有攻击招致 站立2秒吧
+				zantingjishi();
+				return;
+			}
 			
 			
 			if(JNAtkDistance==-2){
@@ -133,11 +138,20 @@ package AI.aifas
 					TexiaoPool2.getInstance().getOnTexiao(jinengVO.jnName,_obj,cbk);
 				}
 			}
-			
+		}
+		
+		private var jishiNums:int = 0;
+		private function zantingjishi():void{
+			jishiNums++;
+			if(jishiNums>=100){
+				jishiNums = 0;
+				cbk();
+			}
 		}
 		
 		private var jinengVO:JinengVO;
 		private function getJNAndGetAtkDistance(n:int):int{
+			_cJNArr = _JNObj[_obj.getGJType()];
 			for(var i:int in _cJNArr){
 				if(n>=_cJNArr[i]["jilv1"]&&n<_cJNArr[i]["jilv2"]){
 					/**如果是数组 进入第二种模式
@@ -160,7 +174,7 @@ package AI.aifas
 		
 		
 		private function cbk():void{
-			trace(">>>cbk");
+//			trace(">>>cbk");
 			isAction = false;
 			isRandom = true;
 		}

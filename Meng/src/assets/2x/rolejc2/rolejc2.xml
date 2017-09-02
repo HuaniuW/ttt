@@ -1,73 +1,73 @@
 <TextureAtlas imagePath="rolejc2.png">
-  <SubTexture name="img_jc_zcshouy" x="2031" y="486" width="14" height="15"/>
-  <SubTexture name="img_ww1_cshenti" x="1542" y="357" width="48" height="96" frameX="0" frameWidth="49" frameY="0" frameHeight="96"/>
-  <SubTexture name="img_diban_1_diban" x="0" y="122" width="1200" height="120"/>
-  <SubTexture name="img_jc_zckaijia1" x="1413" y="477" width="15" height="29"/>
-  <SubTexture name="img_ww1_zcshou2" x="1592" y="357" width="12" height="42" frameX="0" frameWidth="13" frameY="0" frameHeight="42"/>
-  <SubTexture name="img_ww1_zcshou1" x="1185" y="291" width="11" height="43"/>
-  <SubTexture name="img_ww1_cshenti2" x="442" y="420" width="44" height="96" frameX="0" frameWidth="46" frameY="0" frameHeight="97"/>
-  <SubTexture name="img_diban_2_diban" x="0" y="0" width="1200" height="120"/>
-  <SubTexture name="img_jc_zckaijia2" x="1413" y="446" width="16" height="29"/>
-  <SubTexture name="img_qt_atkFC" x="154" y="475" width="62" height="31"/>
-  <SubTexture name="img_ba1_gjtx" x="1603" y="497" width="222" height="14" frameX="0" frameWidth="223" frameY="0" frameHeight="15"/>
-  <SubTexture name="img_jc_bkaijia1" x="1995" y="435" width="19" height="26"/>
-  <SubTexture name="img_qt_beHitFC" x="1592" y="401" width="12" height="31"/>
-  <SubTexture name="img_jc_bkaijia3" x="2026" y="98" width="14" height="49"/>
+  <SubTexture name="img_ww1_zcjiao1" x="1975" y="454" width="31" height="49" frameX="0" frameWidth="32" frameY="0" frameHeight="49"/>
+  <SubTexture name="img_jc_ckaijia3" x="1975" y="505" width="32" height="47"/>
+  <SubTexture name="img_a2o5_gjtx" x="211" y="551" width="294" height="124"/>
+  <SubTexture name="img_jc_ckaijia2" x="2022" y="362" width="21" height="30"/>
+  <SubTexture name="img_ww1_wuqi1" x="2009" y="394" width="25" height="120" frameX="0" frameWidth="27" frameY="0" frameHeight="121"/>
+  <SubTexture name="img_a2o4_gjtx" x="1198" y="257" width="296" height="131"/>
+  <SubTexture name="img_jc_zctou2" x="1496" y="257" width="108" height="147" frameX="0" frameWidth="109" frameY="0" frameHeight="147"/>
+  <SubTexture name="img_ww1_ckaijia1" x="1101" y="518" width="16" height="31"/>
+  <SubTexture name="img_jc_btou" x="1929" y="233" width="80" height="111" frameX="0" frameWidth="82" frameY="0" frameHeight="112"/>
+  <SubTexture name="img_jc_ckaijia1" x="2022" y="327" width="24" height="33"/>
+  <SubTexture name="img_a2o3_gjtx" x="1198" y="523" width="290" height="125" frameX="0" frameWidth="290" frameY="0" frameHeight="131"/>
+  <SubTexture name="img_ww1_zcshou2" x="1184" y="351" width="12" height="42" frameX="0" frameWidth="13" frameY="0" frameHeight="42"/>
+  <SubTexture name="img_ww1_ctou" x="698" y="503" width="107" height="122" frameX="0" frameWidth="107" frameY="0" frameHeight="123"/>
+  <SubTexture name="img_a2o2_gjtx" x="853" y="574" width="286" height="122" frameX="0" frameWidth="286" frameY="0" frameHeight="131"/>
+  <SubTexture name="img_ww1_zcshou1" x="2011" y="280" width="11" height="43"/>
+  <SubTexture name="img_a1o7_gjtx" x="886" y="473" width="213" height="99"/>
+  <SubTexture name="img_jc_zctou" x="1929" y="346" width="78" height="106" frameX="0" frameWidth="79" frameY="0" frameHeight="107"/>
+  <SubTexture name="img_jc_bshenti" x="611" y="506" width="39" height="91" frameX="0" frameWidth="40" frameY="0" frameHeight="92"/>
+  <SubTexture name="img_jc_zcshouy" x="1182" y="532" width="14" height="15"/>
+  <SubTexture name="img_ww1_zcshenti" x="1132" y="351" width="50" height="98" frameX="0" frameWidth="51" frameY="0" frameHeight="98"/>
   <SubTexture name="img_jc_zckaijia4" x="2026" y="52" width="19" height="44"/>
-  <SubTexture name="img_ww1_zckaijia4" x="1012" y="460" width="18" height="26"/>
-  <SubTexture name="img_jc_bkaijia2" x="1995" y="463" width="18" height="26"/>
-  <SubTexture name="img_jc_zckaijia3" x="2026" y="149" width="15" height="45"/>
-  <SubTexture name="img_ww1_zckaijia2" x="1909" y="479" width="14" height="30"/>
-  <SubTexture name="img_jc_zcjiao1" x="2024" y="239" width="21" height="44" frameX="0" frameWidth="21" frameY="0" frameHeight="45"/>
-  <SubTexture name="img_jc_wuqi2" x="1950" y="233" width="43" height="241" frameX="0" frameWidth="44" frameY="0" frameHeight="242"/>
-  <SubTexture name="img_ww1_zcshenti" x="1542" y="257" width="50" height="98" frameX="0" frameWidth="51" frameY="0" frameHeight="98"/>
   <SubTexture name="img_jc_bkaijia4" x="2026" y="0" width="19" height="50"/>
+  <SubTexture name="img_ww1_zcshou" x="211" y="534" width="16" height="15" frameX="0" frameWidth="17" frameY="0" frameHeight="16"/>
+  <SubTexture name="img_ww1_zctou" x="507" y="506" width="102" height="118" frameX="0" frameWidth="103" frameY="0" frameHeight="119"/>
+  <SubTexture name="img_jc_bkaijia3" x="2026" y="98" width="14" height="49"/>
+  <SubTexture name="img_jc_zcshou2y" x="1185" y="291" width="9" height="42"/>
+  <SubTexture name="img_jc_zckaijia3" x="2026" y="149" width="15" height="45"/>
+  <SubTexture name="img_jc_zckaijia2" x="1556" y="533" width="16" height="29"/>
+  <SubTexture name="img_a1o6_gjtx" x="1597" y="524" width="219" height="179"/>
+  <SubTexture name="img_qt_beHitFC" x="1184" y="395" width="12" height="31"/>
+  <SubTexture name="img_ww1_bkaijia4" x="154" y="534" width="18" height="26"/>
+  <SubTexture name="img_ww1_ckaijia4" x="1101" y="485" width="20" height="31"/>
+  <SubTexture name="img_jc_bkaijia2" x="1574" y="533" width="18" height="26"/>
+  <SubTexture name="img_a1o5_gjtx" x="698" y="244" width="186" height="257"/>
+  <SubTexture name="img_jc_zcshou2" x="2011" y="325" width="9" height="42"/>
+  <SubTexture name="img_jc_bkaijia1" x="1535" y="533" width="19" height="26"/>
   <SubTexture name="img_jc_zcjiao2" x="2026" y="196" width="15" height="41" frameX="0" frameWidth="16" frameY="0" frameHeight="42"/>
-  <SubTexture name="img_ww1_bkaijia4" x="1585" y="455" width="18" height="26"/>
-  <SubTexture name="img_jc_bshenti" x="1909" y="386" width="39" height="91" frameX="0" frameWidth="40" frameY="0" frameHeight="92"/>
-  <SubTexture name="img_ww1_zcjiao1" x="1121" y="393" width="31" height="49" frameX="0" frameWidth="32" frameY="0" frameHeight="49"/>
-  <SubTexture name="img_ww1_ckaijia1" x="2017" y="406" width="16" height="31"/>
-  <SubTexture name="img_jc_btou" x="1039" y="393" width="80" height="111" frameX="0" frameWidth="82" frameY="0" frameHeight="112"/>
-  <SubTexture name="img_ww1_zcshou" x="1585" y="483" width="16" height="15" frameX="0" frameWidth="17" frameY="0" frameHeight="16"/>
-  <SubTexture name="img_ww1_bshenti" x="1539" y="455" width="44" height="93" frameX="0" frameWidth="44" frameY="0" frameHeight="94"/>
-  <SubTexture name="img_jc_ckaijia1" x="1995" y="367" width="24" height="33"/>
-  <SubTexture name="img_ww1_zcjiao2" x="2024" y="332" width="15" height="40" frameX="0" frameWidth="16" frameY="0" frameHeight="41"/>
-  <SubTexture name="img_jc_ckaijia2" x="2021" y="374" width="21" height="30"/>
-  <SubTexture name="img_a1o5_gjtx" x="709" y="336" width="219" height="196"/>
-  <SubTexture name="img_jc_zcshou2" x="1594" y="257" width="9" height="42"/>
-  <SubTexture name="img_jc_ckaijia3" x="1121" y="444" width="32" height="47"/>
-  <SubTexture name="img_ww1_wuqi1" x="1158" y="244" width="25" height="120" frameX="0" frameWidth="27" frameY="0" frameHeight="121"/>
-  <SubTexture name="img_ww1_ctou" x="930" y="336" width="107" height="122" frameX="0" frameWidth="107" frameY="0" frameHeight="123"/>
-  <SubTexture name="img_a1o6_gjtx" x="221" y="420" width="219" height="179"/>
-  <SubTexture name="img_a1o7_gjtx" x="1198" y="446" width="213" height="99"/>
-  <SubTexture name="img_jc_ckaijia4" x="2016" y="439" width="30" height="45"/>
-  <SubTexture name="img_jc_cshenti" x="1158" y="366" width="38" height="91" frameX="0" frameWidth="40" frameY="0" frameHeight="92"/>
-  <SubTexture name="img_jc_zcshenhou" x="1950" y="476" width="43" height="38"/>
-  <SubTexture name="img_a1o8_gjtx" x="0" y="475" width="152" height="65"/>
-  <SubTexture name="img_jc_cshenti2" x="664" y="473" width="36" height="90"/>
-  <SubTexture name="img_a2o1_gjtx" x="488" y="473" width="174" height="52" frameX="0" frameWidth="175" frameY="0" frameHeight="52"/>
-  <SubTexture name="img_ww1_ckaijia4" x="1995" y="402" width="20" height="31"/>
-  <SubTexture name="img_jc_zcshenti" x="1155" y="459" width="40" height="95" frameX="0" frameWidth="41" frameY="0" frameHeight="95"/>
-  <SubTexture name="img_a2o2_gjtx" x="1585" y="513" width="142" height="75" frameX="0" frameWidth="215" frameY="0" frameHeight="75"/>
-  <SubTexture name="img_a1o1_gjtx" x="1606" y="233" width="342" height="151"/>
-  <SubTexture name="img_a2o3_gjtx" x="1606" y="386" width="301" height="109"/>
-  <SubTexture name="img_ww1_btou" x="1435" y="257" width="105" height="125" frameX="0" frameWidth="105" frameY="0" frameHeight="126"/>
-  <SubTexture name="img_jc_zcshou" x="2015" y="486" width="14" height="15"/>
-  <SubTexture name="img_a2o4_gjtx" x="709" y="244" width="337" height="90" frameX="0" frameWidth="339" frameY="0" frameHeight="90"/>
-  <SubTexture name="img_jc_ctou" x="930" y="460" width="80" height="105" frameX="0" frameWidth="80" frameY="0" frameHeight="106"/>
-  <SubTexture name="img_a1o2_gjtx" x="221" y="244" width="269" height="174" frameX="0" frameWidth="269" frameY="0" frameHeight="175"/>
-  <SubTexture name="img_a2o5_gjtx" x="1197" y="547" width="326" height="51" frameX="0" frameWidth="327" frameY="0" frameHeight="51"/>
-  <SubTexture name="img_jc_zcshou1" x="1185" y="244" width="11" height="45"/>
-  <SubTexture name="img_a3o1_gjtx" x="1606" y="0" width="418" height="231" frameX="0" frameWidth="419" frameY="0" frameHeight="232"/>
-  <SubTexture name="img_jc_wuqi1" x="1995" y="233" width="27" height="132" frameX="0" frameWidth="28" frameY="0" frameHeight="133"/>
-  <SubTexture name="img_a1o3_gjtx" x="1198" y="257" width="235" height="187"/>
-  <SubTexture name="img_ww1_bkaijia2" x="1925" y="479" width="14" height="30"/>
+  <SubTexture name="img_a1o4_gjtx" x="507" y="244" width="189" height="260"/>
+  <SubTexture name="img_jc_zcshou1y" x="1185" y="244" width="11" height="45"/>
+  <SubTexture name="img_jc_zckaijia1" x="194" y="534" width="15" height="29"/>
+  <SubTexture name="img_jc_zcshou1" x="2011" y="233" width="11" height="45"/>
+  <SubTexture name="img_jc_zcjiao1" x="2024" y="239" width="21" height="44" frameX="0" frameWidth="21" frameY="0" frameHeight="45"/>
+  <SubTexture name="img_diban_2_diban" x="0" y="122" width="1200" height="120"/>
+  <SubTexture name="img_jc_zcshou" x="1182" y="515" width="14" height="15"/>
+  <SubTexture name="img_ww1_btou" x="1490" y="406" width="105" height="125" frameX="0" frameWidth="105" frameY="0" frameHeight="126"/>
+  <SubTexture name="img_jc_wuqi2" x="1884" y="233" width="43" height="241" frameX="0" frameWidth="44" frameY="0" frameHeight="242"/>
+  <SubTexture name="img_diban_1_diban" x="0" y="0" width="1200" height="120"/>
+  <SubTexture name="img_jc_wuqi1" x="1103" y="351" width="27" height="132" frameX="0" frameWidth="28" frameY="0" frameHeight="133"/>
+  <SubTexture name="img_ww1_cshenti2" x="1929" y="454" width="44" height="96" frameX="0" frameWidth="46" frameY="0" frameHeight="97"/>
+  <SubTexture name="img_a1o3_gjtx" x="268" y="244" width="237" height="282"/>
+  <SubTexture name="img_ba1_gjtx" x="268" y="528" width="222" height="14" frameX="0" frameWidth="223" frameY="0" frameHeight="15"/>
+  <SubTexture name="img_a2o1_gjtx" x="1198" y="390" width="290" height="131"/>
+  <SubTexture name="img_jc_zcshenti" x="1884" y="476" width="40" height="95" frameX="0" frameWidth="41" frameY="0" frameHeight="95"/>
+  <SubTexture name="img_jc_ctou" x="1103" y="244" width="80" height="105" frameX="0" frameWidth="80" frameY="0" frameHeight="106"/>
+  <SubTexture name="img_ww1_zckaijia2" x="1182" y="451" width="14" height="30"/>
+  <SubTexture name="img_qt_atkFC" x="1818" y="524" width="62" height="31"/>
+  <SubTexture name="img_jc_cshenti2" x="2009" y="516" width="36" height="90"/>
+  <SubTexture name="img_a3o3_gjtx" x="886" y="244" width="215" height="227"/>
+  <SubTexture name="img_ww1_zcjiao2" x="2024" y="285" width="15" height="40" frameX="0" frameWidth="16" frameY="0" frameHeight="41"/>
+  <SubTexture name="img_a1o2_gjtx" x="0" y="244" width="266" height="288" frameX="0" frameWidth="267" frameY="0" frameHeight="288"/>
+  <SubTexture name="img_jc_cshenti" x="652" y="506" width="38" height="91" frameX="0" frameWidth="40" frameY="0" frameHeight="92"/>
+  <SubTexture name="img_ww1_bkaijia2" x="1182" y="483" width="14" height="30"/>
+  <SubTexture name="img_jc_zcshenhou" x="1490" y="533" width="43" height="38"/>
   <SubTexture name="img_a3o2_gjtx" x="1202" y="0" width="402" height="255"/>
-  <SubTexture name="img_ww1_zctou" x="1435" y="384" width="102" height="118" frameX="0" frameWidth="103" frameY="0" frameHeight="119"/>
-  <SubTexture name="img_jc_zcshou2y" x="2037" y="285" width="9" height="42"/>
-  <SubTexture name="img_jc_zctou" x="1827" y="497" width="78" height="106" frameX="0" frameWidth="79" frameY="0" frameHeight="107"/>
-  <SubTexture name="img_a3o3_gjtx" x="492" y="244" width="215" height="227"/>
-  <SubTexture name="img_a1o4_gjtx" x="0" y="244" width="219" height="229"/>
-  <SubTexture name="img_jc_zctou2" x="1048" y="244" width="108" height="147" frameX="0" frameWidth="109" frameY="0" frameHeight="147"/>
-  <SubTexture name="img_jc_zcshou1y" x="2024" y="285" width="11" height="45"/>
+  <SubTexture name="img_a1o8_gjtx" x="0" y="534" width="152" height="65"/>
+  <SubTexture name="img_ww1_bshenti" x="807" y="503" width="44" height="93" frameX="0" frameWidth="44" frameY="0" frameHeight="94"/>
+  <SubTexture name="img_ww1_cshenti" x="1132" y="451" width="48" height="96" frameX="0" frameWidth="49" frameY="0" frameHeight="96"/>
+  <SubTexture name="img_a3o1_gjtx" x="1606" y="0" width="418" height="231" frameX="0" frameWidth="419" frameY="0" frameHeight="232"/>
+  <SubTexture name="img_ww1_zckaijia4" x="174" y="534" width="18" height="26"/>
+  <SubTexture name="img_jc_ckaijia4" x="853" y="503" width="30" height="45"/>
+  <SubTexture name="img_a1o1_gjtx" x="1606" y="233" width="276" height="289"/>
 </TextureAtlas>
