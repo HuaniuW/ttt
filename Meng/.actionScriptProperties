@@ -36,8 +36,8 @@
       </libraryPathEntry>
       <libraryPathEntry kind="3" linkType="1" path="/MyGameLib/bin/MyGameLib.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/StarlingFeathers/bin/StarlingFeathers.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="D:/work/用到的库类/greensock.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="D:/work/用到的库类/release_nape.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="/Users/huahua/Documents/workspace/swc/greensock.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="/Users/huahua/Documents/workspace/swc/release_nape.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
