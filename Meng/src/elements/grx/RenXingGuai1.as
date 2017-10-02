@@ -1,6 +1,7 @@
 package elements.grx
 {
-	import AI.AIfn2;
+	import AI.aifas.AIfn2;
+	import AI.aifas.AIfn3;
 	
 	import Lir.GetJson;
 	
@@ -11,6 +12,7 @@ package elements.grx
 	import elements.role.RoleLive;
 	import elements.role.RoleO;
 	import elements.role.RoleTili;
+	import elements.role.ZhuangTaiChange;
 	
 	import game.myGame.PifuChange;
 	
@@ -24,6 +26,7 @@ package elements.grx
 	
 	public class RenXingGuai1 extends RoleO
 	{
+		private var _zhuangTaiChange:ZhuangTaiChange;
 		public function RenXingGuai1(mc:SwfMovieClip, dataObj:Object, _x:Number, _y:Number, w:Number, h:Number, space:Space)
 		{
 			super(mc, dataObj, _x, _y, w, h, space);
@@ -36,13 +39,18 @@ package elements.grx
 		protected override function getInit():void{
 			super.getInit();
 			this.getInEnemyArr();
+			setBodyY(-6);
 			
 //			_bodyMc.filter = BlurFilter.createGlow(0xeeee00);
 			GetJson.getInstance().getLoad("guai1.txt",this.cbk);
 			
+			
+			
 		} 
 		
 		private function cbk(obj):void{
+			
+			
 			ObjVO.getInstance().getVO(obj,this);
 			if(!this._roleLive)this._roleLive = new RoleLive();
 			this.curLive = this.maxLive;
@@ -55,9 +63,13 @@ package elements.grx
 			this.curTili = this.maxTili;
 			_roleTili.maxTili = this.maxTili;
 			_roleTili.curTili = this.curTili;
-			
-			AIfn2.getInstance().getAiObj(this,Globals.player);
 			this.enemyArr = [Globals.player];
+			
+			
+			if(!_zhuangTaiChange)_zhuangTaiChange = ZhuangTaiChange.getInstance();
+			_zhuangTaiChange.getObj(this.zhuangtaiqiehuan,this);
+			
+//			AIfn3.getInstance().getAiObj(this,Globals.player);
 		}
 		
 		public function getInEnemyArr():void{

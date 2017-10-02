@@ -52,7 +52,11 @@
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
     <buildTarget buildTargetName="device" iosSettingsVersion="2" isCurrent="true" platformId="com.adobe.flexide.multiplatform.ios.platform" provisioningFile="" releasePackageType="">
+<<<<<<< HEAD
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
+=======
+      <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
+>>>>>>> origin/master
         <airExcludes/>
         <anePaths/>
         <newLaunchParams/>
@@ -60,7 +64,11 @@
         <newPackagingParams/>
         <modifiedPackagingParams/>
       </airSettings>
+<<<<<<< HEAD
       <multiPlatformSettings enabled="true" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
+=======
+      <multiPlatformSettings enabled="false" hideAneLibSymbols="0" includePlatformLibs="false" platformID="com.adobe.flexide.multiplatform.ios.platform" reducedSizePackaging="false" version="1"/>
+>>>>>>> origin/master
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget airDownloadURL="https://market.android.com/details?id=com.adobe.air" androidSettingsVersion="2" buildTargetName="device" isCurrent="true" platformId="com.adobe.flexide.multiplatform.android.platform">

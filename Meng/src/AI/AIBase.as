@@ -15,7 +15,7 @@ package AI
 			_cbk = cbk;
 		}
 		
-		public function cbk(obj:Object=null):void
+		protected function cbk(obj:Object=null):void
 		{
 			// TODO Auto Generated method stub
 			
@@ -26,13 +26,13 @@ package AI
 			// TODO Auto Generated method stub
 		}
 		
-		public function getRandom():void
+		protected function getRandom():void
 		{
 			// TODO Auto Generated method stub
 			
 		}
 		
-		public function reSetAll():void
+		protected function reSetAll():void
 		{
 			// TODO Auto Generated method stub
 			

@@ -10,6 +10,7 @@ package screens
 	import game.engine.Engine;
 	
 	import lzm.starling.display.Button;
+	import lzm.starling.gestures.HoldGestures;
 	import lzm.starling.gestures.HoverGestures;
 	import lzm.starling.gestures.MoveOverGestures;
 	import lzm.starling.gestures.TapGestures;
@@ -21,7 +22,6 @@ package screens
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
-	import lzm.starling.gestures.HoldGestures;
 	
 	public class BtnUI extends Sprite
 	{
@@ -52,7 +52,9 @@ package screens
 			addChild(btnA);
 			btnA.x = Starling.current.stage.stageWidth - btnA.width*3;
 			btnA.y = Starling.current.stage.stageHeight - btnA.height-60; 
-			new TapGestures(btnA,getAtk);
+			new HoverGestures(btnA,getAtk);
+//			btnA.addEventListener(TouchEvent.TOUCH,getAtk2);
+			
 //			new MoveOverGestures(btnA,getAtk);
 			
 			var holdGestures:HoldGestures = new HoldGestures(btnA,onGetAtk,holdCbk,holdStarCbk);
@@ -169,8 +171,22 @@ package screens
 			
 		}
 		
+		private function getAtk2(e:TouchEvent):void{
+			var btn:Button = e.currentTarget as Button;
+			
+			if(e.getTouch(btn,TouchPhase.BEGAN))
+			{
+				if(_role)
+				{
+					_role.atk();
+				}
+			}
+		}
+		
 		private function getAtk(touch:Touch):void
 		{
+			
+			
 			if(_role)_role.atk();
 		}
 		

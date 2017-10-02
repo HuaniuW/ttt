@@ -1,0 +1,19 @@
+<TextureAtlas imagePath="gameScreen1.png">
+  <SubTexture name="img_jing_yueqiu" x="1718" y="247" width="205" height="205"/>
+  <SubTexture name="img_jing_shitou1" x="0" y="727" width="83" height="77"/>
+  <SubTexture name="img_jing_yinying1" x="1718" y="454" width="189" height="192"/>
+  <SubTexture name="img_jing_cao4" x="1689" y="648" width="138" height="162"/>
+  <SubTexture name="img_jing_cao3" x="1439" y="627" width="177" height="129"/>
+  <SubTexture name="img_jing_cao2" x="1618" y="627" width="69" height="135"/>
+  <SubTexture name="img_jing_cao1" x="1909" y="636" width="75" height="93"/>
+  <SubTexture name="img_jing_shuyin1" x="1002" y="247" width="714" height="378"/>
+  <SubTexture name="img_grx_guai1_RenXingGuai1" x="1925" y="247" width="87" height="215" frameX="0" frameWidth="88" frameY="0" frameHeight="216"/>
+  <SubTexture name="img_jing_shuiqi1" x="996" y="627" width="441" height="308"/>
+  <SubTexture name="img_role_jc_role" x="1909" y="464" width="77" height="170" frameX="0" frameWidth="78" frameY="0" frameHeight="171"/>
+  <SubTexture name="img_diban_5_diban" x="332" y="257" width="330" height="468" frameX="0" frameWidth="330" frameY="0" frameHeight="469"/>
+  <SubTexture name="img_diban_4_diban" x="0" y="257" width="330" height="468" frameX="0" frameWidth="330" frameY="0" frameHeight="469"/>
+  <SubTexture name="img_jing_yun3" x="1002" y="0" width="1000" height="245"/>
+  <SubTexture name="img_diban_3_diban" x="664" y="257" width="330" height="468" frameX="0" frameWidth="330" frameY="0" frameHeight="469"/>
+  <SubTexture name="img_jing_yun2" x="85" y="727" width="501" height="96"/>
+  <SubTexture name="img_jing_yun1" x="0" y="0" width="1000" height="255"/>
+</TextureAtlas>

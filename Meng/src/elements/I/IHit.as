@@ -1,5 +1,7 @@
 package elements.I
 {
+	import elements.jineng.JinengVO;
+	
 	import lzm.starling.swf.display.SwfImage;
 
 	public interface IHit
@@ -9,6 +11,6 @@ package elements.I
 		function getScaleX():int;
 		function getX():int;
 		function getY():int;
-		function getGJSZ():Object;
+		function getJNObj():JinengVO;
 	}
 }

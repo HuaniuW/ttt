@@ -23,10 +23,10 @@ package elements.texiao
 		
 		
 		protected var _role:Ibiont;
-		protected var _num:int;
+		protected var _numChangeCeng:int;
 		protected var _parent:DisplayObjectContainer;
 		protected var _isGensui:Boolean =false;
-		protected var _txname:String;
+		protected var _txMCName:String;
 		
 		protected var __x:Number = 0;
 		protected var __y:Number = 0;
@@ -38,10 +38,11 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		public function show(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
-			this._txname = _name;
-			this._num = num;
-			this._texiaoMc = GameManager.getInstance().assetMgr.createMovieClip(_name);
+		public function show(txMCName:String,role:Ibiont=null,_x:Number=0,_y:Number=0,numChangeCeng:int=100):void{
+			this._txMCName = txMCName;
+			this._numChangeCeng = numChangeCeng;
+			this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName);
+			_texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			
 			this.__x = _x;
@@ -62,8 +63,6 @@ package elements.texiao
 			Engine.createEngine().push(this.action);
 			
 			
-//			this._parent.addChildAt(this,this._parent.numChildren-1);
-//			trace("--------------> "+this.parent.getChildIndex(this._role));
 		}
 		
 		
@@ -72,7 +71,7 @@ package elements.texiao
 				this.x = this._role.getX()-this.scaleX*this.__x;
 				this.y = this._role.getY()+this._role.getHeight()*0.5+this.__y;
 			}
-			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._num){
+			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._numChangeCeng){
 				this._parent.addChildAt(this,_role.getThisChildIndex()-1);
 			}
 			if(this._texiaoMc&&this._texiaoMc.currentFrame == this._texiaoMc.totalFrames-1){
@@ -84,7 +83,10 @@ package elements.texiao
 		protected function removeSelf():void{
 			if(this.parent){
 				this.removeFromParent();
-				TexiaoPool.getInstance().getInPool(this._txname,this);
+				TexiaoPool.getInstance().getInPool(this._txMCName,this);
+				TXMcPool.getInstance().getInPool(this._txMCName,this._texiaoMc);
+				Engine.createEngine().pop(this.action);
+				this._texiaoMc = null;
 			}
 		}
 		

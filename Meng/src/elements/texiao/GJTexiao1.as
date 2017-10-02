@@ -1,11 +1,11 @@
 package elements.texiao
 {
-	import controls.GameManager;
 	import controls.GetHit;
 	import controls.Globals;
 	
 	import elements.I.IHit;
 	import elements.I.Ibiont;
+	import elements.jineng.JinengVO;
 	
 	import game.engine.Engine;
 	import game.mySound.MySoundPool;
@@ -28,14 +28,35 @@ package elements.texiao
 		protected var _enemyArr:Array = [];
 		protected var _jishinuums:int=0;
 		protected var _chixushijian:int = 0;
-		protected var sjObj:Object;
+		protected var jinengVO:JinengVO;
 		protected var hitMc:SwfImage;
+		protected var _cbk:Function;
+		protected var _isYanChi:Boolean = false;
 		
+<<<<<<< HEAD
 		public function getSJObj(obj:Object,role:Ibiont):void{
 			this.sjObj = obj;
 			show(obj["name"],role,obj["_x"]);
 			getFrameShow(obj["dongzuoLabel"],8);
 			this._enemyArr = role.getEnemyArr();
+=======
+		/**
+		 *技能对象 和攻击对象 
+		 * @param obj
+		 * @param role
+		 * 
+		 */		
+		public function getSJObj(obj:Object,role:Ibiont,cbk:Function = null,isYanChi:Boolean = true):void{
+			if(!this.jinengVO){
+				this.jinengVO = new JinengVO();
+			}
+			_cbk = cbk;
+			_isYanChi = isYanChi;
+			jinengVO.getVO(obj);
+			show(jinengVO.txMCName,role,jinengVO._x,jinengVO._y);
+			this._enemyArr = role.getEnemyArr();
+			getFrameShow(jinengVO.dongzuoLabel,jinengVO.cbkF);
+>>>>>>> origin/master
 		}
 		
 		
@@ -47,10 +68,11 @@ package elements.texiao
 		 * @param num	第几帧显示到角色的下一层
 		 * 
 		 */		
-		override public function show(_name:String, role:Ibiont, _x:Number=0, _y:Number=0, num:int=100):void
+		override public function show(txMCName:String, role:Ibiont= null, _x:Number=0, _y:Number=0, numChangeCeng:int=100):void
 		{
-			this._txname = _name;
-			this._num = num;
+			this._txMCName = txMCName;
+//			trace("_txname   "+_txMCName);
+			this._numChangeCeng = numChangeCeng;
 			
 			
 			this.__x = _x;
@@ -65,7 +87,6 @@ package elements.texiao
 				_isGensui = true;
 				__x = 0;
 			}
-			
 			
 		}
 		
@@ -83,35 +104,56 @@ package elements.texiao
 			this._vy = vy;
 			this._framelabel = framelabel;
 			this._numshow = showTXFrameNums;
+<<<<<<< HEAD
 			this._role.getTheDongzuo(framelabel,showTXFrameNums,cbkF);
+=======
+//			trace(framelabel+"   "+showTXFrameNums);
+//			trace("yanchidengji> "+_role.getYanChiDengji());
+			
+			this._role.getTheDongzuo(framelabel,showTXFrameNums,cbkF,jinengVO.DZcanMoveFrame);
+			if(_isYanChi){
+				if(_role.getYanChiDengji()!=0){
+					_role.getACStopNums(jinengVO.qishouyanchi/_role.getYanChiDengji());
+				}
+			}
+			this._role.theVelocityX(-jinengVO.vx*_role.getScaleX());
+			this._role.theVelocityY(-jinengVO.vy);
+>>>>>>> origin/master
 		}
 		
 		
 		private function cbkF():void{
-			if(!this._texiaoMc)this._texiaoMc = GameManager.getInstance().assetMgr.createMovieClip(_txname);
+			if(!this._texiaoMc)this._texiaoMc = TXMcPool.getInstance().getTexiaoMc(_txMCName); 
+//			trace("shiyingTXScale  "+this._role.getShiyingTXScale());
+//			this._texiaoMc.scaleX = this._texiaoMc.scaleY = this._role.getShiyingTXScale(); 
 			this._texiaoMc.gotoAndPlay(0);
 			this.addChild(_texiaoMc);
 			this.scaleX =  this._role.getScaleX();
+<<<<<<< HEAD
 			trace(this.scaleX+" -----roleScaleX  "+this._role.getScaleX());
+=======
+>>>>>>> origin/master
 			this.x = this._role.getX()-this.scaleX*this.__x;
 			this.y = this._role.getY()+this._role.getHeight()*0.5+this.__y;
 			Engine.createEngine().push(this.action);
 		}
 		
-		
-		
-		
+		/**
+		 *????? 干嘛的？  防止重复判断？？？
+		 */		
 		private var numsss:int = 0;
 		
 		override protected function action():void
 		{
-			//持续时间
+			/**持续时间 ?>???*/
 			if(this._chixushijian&&this._chixushijian!=0){
 				return;
 			}
+<<<<<<< HEAD
 			trace(">>  "+this._role.getCurrentLabel());
+=======
+>>>>>>> origin/master
 			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
-//				trace("---------------->>  "+this._texiaoMc.currentFrame);
 				numsss++;
 				if(numsss>1)return;
 				getAtked();
@@ -124,24 +166,55 @@ package elements.texiao
 		
 		/**
 		 *是否击中 
+		 * this IHit
+		 * this.scaleX
+		 * texiaoMc
+		 * _role
+		 * enemyArr
+		 * jinengVO
 		 * 
 		 */		
 		protected function getAtked():void{
-			if(this._texiaoMc&&this._texiaoMc.getImage("hitMc")){
-				hitMc = this._texiaoMc.getImage("hitMc");
-				hitMc.width = this.sjObj["atkjuli"]
-				MySoundPool.instance.getSound("atk",Globals.soundNums);
-				for(var i:int in this._enemyArr){
+			if(_texiaoMc&&_texiaoMc.getImage("hitMc")){
+				hitMc = _texiaoMc.getImage("hitMc");
+				hitMc.width = jinengVO.atkjuli;
+//				hitMc.scaleX*=_role.getShiyingTXScale(); 
+//				hitMc.scaleY*=_role.getShiyingTXScale(); 
+				hitMc.x = -100;
+				MySoundPool.instance.getSound(jinengVO.JNSound,Globals.soundNums);
+				for(var i:int in _enemyArr){
 					//					trace(((Globals.enemyArr[i]) as IHit).getBeHitMc().x);
 					//					trace("是否碰撞      "+GetHit.getBDHit(this,Globals.enemyArr[i]));
 					
-					if(GetHit.getBDHit(this,this._enemyArr[i])){
+					if(GetHit.getBDHit(this,_enemyArr[i])){
 						/**1.招式的移动  2.招式的攻击力  3.被攻击者的硬直  4.技能攻击破盾   5.击退 击飞 高硬直  6.击中光效   判断*/
-						var vx:Number = this.sjObj["vx"];
-						var cy:Number = this.sjObj["cy"];
-						var gjl:Number = this.sjObj["gjl"];
-						if(this.scaleX>0)vx*=-1;
-						(this._enemyArr[i] as Ibiont).beHit(vx,cy,gjl);
+						var vx:Number = jinengVO.vx;
+						var cjvx:Number = jinengVO.cjvx;
+						var cjvy:Number = jinengVO.cjvy;
+						var gjl:Number = _role.getGJL()+ jinengVO.gjl;
+						/**加入硬直对比 是自己被击退 还是敌人被击退----------------------------------------------------------------------------------------*/
+						/**自己硬直*/
+						var zjyingzhi:int = _role.getYingzhi();
+						/**敌人硬直*/
+						var dryingzhi:int = (_enemyArr[i] as Ibiont).getYingzhi();
+						if(this.scaleX>0)cjvx*=-1;
+						/**如果是单独技能 不是普攻 或者 普攻加强型 特效      做特别处理*/
+						if(zjyingzhi<dryingzhi){
+							if(jinengVO.JNType&&jinengVO.JNType!="pt"){
+								
+							}else{
+								
+								if(!(_enemyArr[i] as Ibiont).getIsBeHiting()&&!(_enemyArr[i] as Ibiont).getIsBeHitOuting()){
+									if(zjyingzhi - dryingzhi<-100){
+										_role.theVelocityX(-cjvx);
+										cjvx = 0;
+										cjvy = 0;
+									}
+								}
+							}
+						}
+						
+						(_enemyArr[i] as Ibiont).beHit(cjvx,cjvy,gjl);
 					}
 				}
 			}
@@ -150,11 +223,21 @@ package elements.texiao
 		protected override function removeSelf():void{
 			if(this.parent){
 				this._texiaoMc.removeFromParent();
+<<<<<<< HEAD
 				this._texiaoMc = null;
 				numsss = 0;
 				Engine.createEngine().pop(this.action);
 				this.removeFromParent();
 				TexiaoPool2.getInstance().getInPool(sjObj["txName"],this);
+=======
+				numsss = 0;
+				Engine.createEngine().pop(this.action);
+				this.removeFromParent();
+				TexiaoPool2.getInstance().getInPool(jinengVO.jnName,this);
+				TXMcPool.getInstance().getInPool(this._txMCName,this._texiaoMc);
+				this._texiaoMc = null;
+				if(_cbk)_cbk();
+>>>>>>> origin/master
 			}
 		}
 		
@@ -163,9 +246,9 @@ package elements.texiao
 			return null;
 		}
 		
-		public function getGJSZ():Object
+		public function getJNObj():JinengVO
 		{
-			return this.sjObj;
+			return this.jinengVO;
 		}
 		
 		public function getHitMc():SwfImage

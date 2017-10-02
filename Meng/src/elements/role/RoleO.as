@@ -9,7 +9,10 @@ package elements.role
 	import controls.Globals;
 	
 	import elements.I.Ibiont;
+	import elements.jineng.JinengObj;
+	import elements.jineng.JinengVO;
 	import elements.texiao.TexiaoPool;
+	import elements.texiao.TexiaoPool2;
 	
 	import game.engine.Engine;
 	import game.mySound.MySoundPool;
@@ -36,6 +39,8 @@ package elements.role
 		protected function getInit():void
 		{
 			if(!this._beHitCorlor)this._beHitCorlor  = new BeHitColor();
+			if(!_jinengVO)_jinengVO = new JinengVO();
+			if(!acStopNums)acStopNums = ACStopNums.getInstance();
 		}
 		
 		
@@ -66,6 +71,9 @@ package elements.role
 				}
 			}
 			
+			isRoleInAir();
+			
+			
 			
 			
 //			if(isDie){
@@ -81,6 +89,8 @@ package elements.role
 				this.getRest();
 				return;
 			}
+			
+			
 			
 			
 			if(isAvoiding){
@@ -112,14 +122,6 @@ package elements.role
 			
 			
 			
-			if(_isJumping){
-				jump();
-			}
-			
-			
-			
-			
-			if(!this.isAtking||this.isCanAtkedMove){
 				if(isRunLeft){
 					this.runLeft();
 				}
@@ -127,36 +129,44 @@ package elements.role
 				if(isRunRight){
 					this.runRight();
 				}
-			}
 			
 			
 			
-			if(this.isAtking){
-				atking();
-				return;
-			}
 			
 			if(_isDongzuoing){
 				Dongzuoing();
 				return;
 			}
 			
+			if(_isJumping){
+				jump();
+			}
 			
-			if(this.isJumpAtking){
-				atking();
+			
+			if(!this.isCanAtk&&_isInAir&&!isBeHit&&!isStand&&!_isDie&&!_isDongzuoing&&!isBeHitOuting){
+				this._bodyMc.gotoAndPlay("jumpUp");
+				this._bodyMc.gotoAndStop(this._bodyMc.endFrame);
+			}
+			
+			
+			if(!this.isCanAtk&&!isRunLeft &&!isRunRight&&!isBeHit&&!isStand&&!_isJumping&&!_isDie&&!_isDongzuoing&&!isAvoiding){
+				if(_isInAir){
+					this._bodyMc.gotoAndPlay("jumpUp");
+					this._bodyMc.gotoAndStop(this._bodyMc.endFrame);
+				}else{
+					stand();
+				}
+				
 				return;
 			}
 			
 			
-			if(!this.isCanAtk&&!isRunLeft &&!isRunRight&&!isAtking&&!isBeHit&&!isStand&&!_isJumping&&!_isDie){
-				stand();
-				return;
-			}
 			
 			
 		}
 		
 		
+<<<<<<< HEAD
 		protected var _isDongzuo:Boolean = false;
 		public var _isDongzuoing:Boolean = false;
 		protected var _DZcbkFNum:int = 0;
@@ -170,9 +180,21 @@ package elements.role
 				_DZcbk = DZcbk;
 				this._bodyMc.gotoAndPlay(label);
 				_isDongzuoing = true;
+=======
+		private function isRoleInAir():Boolean{
+			if(_isInAir){
+				if(this.body.velocity.y >= 0&&this.body.velocity.y <= 1){
+					_isInAir = false;
+					return false
+				}else{
+					true;
+				}
+>>>>>>> origin/master
 			}
+			return false;
 		}
 		
+<<<<<<< HEAD
 		protected function Dongzuoing():void{
 			if(this._bodyMc.currentFrame==this._bodyMc.endFrame - _DZcbkFNum){
 				_DZcbk();
@@ -182,6 +204,10 @@ package elements.role
 				_isDongzuo = false;
 			}
 		}
+=======
+		
+		
+>>>>>>> origin/master
 		
 		
 		
@@ -191,12 +217,13 @@ package elements.role
 			if(zuduan2())return;
 			if(!this._isRest){
 				this.ztreSet();
+				this._isInAir = false;
 				this._isRest = true;
 				this._isResting = true;
 				this._bodyMc.gotoAndPlay("rest");
 			}
 			
-			if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
+			if(this._bodyMc.currentLabel=="rest" &&  this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				this._isResting = false;
 				_isRest = false;
 			}
@@ -206,6 +233,7 @@ package elements.role
 		private function theBeHiting():void{
 			if(this.isBeHiting){
 				if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
+					this._isInAir = false;
 					this.isBeHiting = false;
 				}
 			}
@@ -224,6 +252,7 @@ package elements.role
 			if(this.isBeHitOut){
 				this.ztreSet();
 				this.isBeHitOuting = true;
+				this._isInAir = false;
 				this._bodyMc.gotoAndPlay("beHitOut");
 			}
 			
@@ -251,6 +280,7 @@ package elements.role
 				isStandUp = true;
 				isStandUping = true;
 				this._bodyMc.gotoAndPlay("standUp");
+				acStopNums.stopNums(15,this);
 			}
 			
 			if(this.isStandUping){
@@ -268,17 +298,66 @@ package elements.role
 		
 		
 		private function zuduan():Boolean{
+			
 			if(this.isBeHitOuting||this.isBeHiting||this.isStandUping||_isResting||this.isDie()||this._isDongzuoing)return true;
 			return false;
 		}
 		
 		
+		
+		
+		
+		protected var _isDongzuo:Boolean = false;
+		public var _isDongzuoing:Boolean = false;
+		/**倒帧返回帧数*/
+		protected var _showTXFrameNum:int = 0;
+		protected var _DZcbk:Function;
+		protected var _DZcanMoveFrame:int = 1;
+		
+		protected function getDongzuo(label:String,showTXFrameNum:int,DZcbk:Function,DZcanMoveFrame:int=1):void{
+//			trace(">>>>>>>>>>>>>>3  "+this.zuduan()+"   "+_isDongzuoing);
+//			trace(this.isBeHitOuting + "   "+this.isBeHiting +"  "+this.isStandUping);
+			if(this.zuduan()||isAvoiding)return;
+//			trace(">>>>>>>>>>>>>>3   "+_isDongzuo);
+			if(!_isDongzuo){
+				this.ztreSet();
+				_isDongzuo = true;
+				this._bodyMc.gotoAndPlay(label);
+				_showTXFrameNum = this._bodyMc.currentFrame+showTXFrameNum;
+				_DZcanMoveFrame = DZcanMoveFrame;
+				if(_DZcanMoveFrame>=this._bodyMc.endFrame-showTXFrameNum){
+					_DZcanMoveFrame = showTXFrameNum-1;
+				}
+				_DZcbk = DZcbk;
+
+//				trace(">>>>>>>>>>>>>>4");
+				_isDongzuoing = true;
+			}
+		}
+		
+		protected function Dongzuoing():void{
+			if(_isInAir){
+				_isJumping = true;
+			}
+			
+			
+			if(this._bodyMc.currentFrame==_showTXFrameNum){
+				_DZcbk();
+			}
+			if(this._bodyMc.currentFrame == this._bodyMc.endFrame-_DZcanMoveFrame){
+				this._isDongzuoing = false;
+				_isDongzuo = false;
+			}
+		}
+		
+		
+		
+		protected var _isInAir:Boolean = false;
+		
+		
 		//当前帧 防止同一帧多跑
 		private var theCF:int = -1;
 		
-		public var isJumpAtking:Boolean = false;
-		public var isAtk:Boolean = false;
-		public var isAtking:Boolean = false;
 		public var isCanAtk:Boolean = false;
 		//攻击后没有收招完就可以移动
 		protected var isCanAtkedMove:Boolean = false;
@@ -287,35 +366,42 @@ package elements.role
 			if(this._isGedanging)return;
 			if(this.isAvoiding)return;
 			if(zuduan())return;
-			if(!isAtking||this.isCanAtk){
-				if(this._isJumping){
-					if(!isJumpAtking){
-						isJumpAtking = true;
-						if(!xiaohaotili(10))return;
-						this._bodyMc.gotoAndPlay("jumpAtk1");	
-						this.cgjNum = 1;
-					}
-				}else{
-					ztreSet();
-					isAtking = true;
-					if(!xiaohaotili(10))return;
-					if(nums == 0){
-						this.gjNum++;
-						this.cgjNum = this.gjNum;
-					}else{
-						gjNum = cgjNum = nums;
-					}
-					this._bodyMc.gotoAndPlay(this.gongjizhaoshiArr[this.cgjNum-1]["zs"]);
-					/**由于开始人物制作资源X方向弄反 视野是 -=*/
-					this.body.velocity.x = 0;
-					this.body.velocity.x-= this.scaleX*this.gongjizhaoshiArr[this.cgjNum-1]["vx"];
-					this.body.velocity.y-= this.gongjizhaoshiArr[this.cgjNum-1]["vy"];
-					gjnqnum = 0;
-					if(this.gjNum == this.gongjizhaoshiArr.length)this.gjNum = 0;
-					
-				}
+			
+			if(nums == 0){
 				
+			}else{
+				gjNum = cgjNum = nums-1;
 			}
+			
+			if(_isInAir){
+				if(this.gjNum >= this.jumpGJArr.length)this.gjNum = 0;
+				_jinengVO.getVO(JinengObj[jumpGJArr[this.gjNum]]);
+			}else{
+				if(this.gjNum >= this.gongjizhaoshiArr.length)this.gjNum = 0;
+				_jinengVO.getVO(JinengObj[gongjizhaoshiArr[this.gjNum]]);
+			}
+			
+			
+			if(!xiaohaotili(_jinengVO.xhtl))return;
+			
+			
+			
+			if(_isInAir){
+				TexiaoPool2.getInstance().getOnTexiao(_jinengVO.jnName,this);
+				this.body.velocity.y = 0;
+				this.body.velocity.y = -200;
+			}else{
+				
+				TexiaoPool2.getInstance().getOnTexiao(_jinengVO.jnName,this);
+			}
+			
+			
+			this.gjNum++;
+			this.cgjNum = this.gjNum;
+			
+			
+			gjnqnum = 0;
+			
 		}
 		
 		
@@ -325,21 +411,13 @@ package elements.role
 				_roleTili.curTili = 0;
 				return false;
 			}
-			if(_roleTili.curTili-num>=1){
+			if(_roleTili.curTili-num>=0){
 				this._roleTili.curTili-=num;
 			}else{
 				this._roleTili.curTili = 1;
+				return false;
 			} 
 			return true;
-			
-			
-			/**方案2*/
-//			this._roleTili.curTili-=num;
-//			if(_roleTili.curTili>0){
-//				return true;
-//			}else{
-//				return false;
-//			}
 		}
 		
 		
@@ -354,7 +432,8 @@ package elements.role
 				this.isAvoid = true;
 				isAvoiding = true;
 				if(!xiaohaotili(10))return;
-				this._bodyMc.gotoAndPlay("avoid");
+				this._bodyMc.gotoAndPlay(labelAvoid);
+				this.body.velocity.y = 0;
 				this.body.velocity.x = 0;
 				this.body.velocity.x+=this.scaleX*690;
 				this.body.velocity.y-=400;
@@ -362,7 +441,6 @@ package elements.role
 			
 			if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				isAvoiding  =false;
-//				this._bodyMc.gotoAndPlay("stand");
 			}
 			
 			
@@ -370,91 +448,22 @@ package elements.role
 		
 		private var gjendNum:int = 1;
 		
-		protected function atking():void{
-			if(this._bodyMc.currentFrame == this.theCF)return;
-			this.theCF = this._bodyMc.currentFrame;
-			
-			
-			//			trace(this._bodyMc.currentLabel+"  this._bodyMc.currentFrame   "+this._bodyMc.currentFrame +"    this._bodyMc.endFrame     "+this._bodyMc.endFrame);
-			
-			if(this.isBeHitOuting)return;
-			
-			if(this.isJumpAtking){
-				getAtked();
-				if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
-					this.isJumpAtking = false;
-				}
-				return;
-			}
-			
-			
-			if(isAtking){
-				getAtked();
-				this.atkAc();
-				return;
-			}
-		}
 		
 		
-		protected function atkAc():void{
-			if(this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
-				this.isAtking = false;
-				this.isCanAtkedMove = false;
-				this.isCanAtk = false;
-				
-			}
-		}
 		
-		/**
-		 *是否击中 
-		 * 
-		 */		
-		protected function getAtked():void{
-			if(this._bodyMc.getImage("hitMc")){
-				
-				this._bodyMc.getImage("hitMc").width = this.gongjizhaoshiArr[this.cgjNum-1]["atkjuli"]
-				
-				TexiaoPool.getInstance().getOnTexiao(this.gongjizhaoshiArr[this.cgjNum-1]["texiao"],this,this.gongjizhaoshiArr[this.cgjNum-1]["txpy"]);
-				
-				MySoundPool.instance.getSound("atk",Globals.soundNums);
-				for(var i:int in this.enemyArr){
-//					trace(((Globals.enemyArr[i]) as IHit).getBeHitMc().x);
-//					trace("是否碰撞      "+GetHit.getBDHit(this,Globals.enemyArr[i]));
-					
-					if(GetHit.getBDHit(this,this.enemyArr[i])){
-						if(isJumpAtking){
-							this.body.velocity.y = 0;
-							this.body.velocity.y-=800;
-						}
-						
-						/**1.招式的移动  2.招式的攻击力  3.被攻击者的硬直  4.技能攻击破盾   5.击退 击飞 高硬直  6.击中光效   判断*/
-						var vx:Number = this.gongjizhaoshiArr[this.cgjNum-1]["vx"];
-						var cy:Number = this.gongjizhaoshiArr[this.cgjNum-1]["cy"];
-						var gjl:Number = this.gongjili+this.gongjizhaoshiArr[this.cgjNum-1]["gjl"];
-						
-						if(this.getScaleX()>0)vx*=-1;
-						
-						(this.enemyArr[i] as Ibiont).beHit(vx,cy,gjl);
-					}
-				}
-			}
-		}
-		
-		
-		private function theBeHit(vx:Number,cy:Number,gjl:Number):void
+		private function theBeHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
 			if(this.isDie())return;
 			if(this._isGedanging){
 				/**格挡计算*/
 				if(this._roleTili)this._roleTili.curTili-=gjl;
-				theVelocityX(vx*1.3);
+				theVelocityX(cjvx);
 				TexiaoPool.getInstance().getOnTexiao("mc_ba1_gjtx",this,0,-60);
 				return;
 			}
 			
-			if(_roleTili)_roleTili.getBeHitTili();
+			if(_roleTili)_roleTili.getBeHitTiliStart();
 			
-			this.ztreSet();
 			
 			
 			this._roleLive.curLive-=(gjl - this.fangyuli);
@@ -467,47 +476,52 @@ package elements.role
 			
 			if(!this._isJumping)this._bodyMc.stop();
 			TweenLite.to(this._bodyMc,0.1,{"onComplete":onComplete});
-			
-			theVelocityX(vx*1.3);
+			theVelocityX(cjvx);
 			/**特效*/
 			TexiaoPool.getInstance().getOnTexiao("mc_ba1_gjtx",this,0,-60);
 			
 			
 			
+			//每个都要单独reset 
 			
 			if(this.isDie()){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
-				return;
-			}
-			
-			
-			if(gjl/this.yingzhi>=3){
-				this.isBeHitOut = true;
-				this.beHitOut();
-				theVelocityY(-cy);
 				return;
 			}
 			
 			
 			if(gjl/this.yingzhi>=2){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
+				theVelocityY(-cjvy);
 				return;
 			}
 			
-			if(this.isBeHitOuting){
-				this.isBeHitOut = true;
-				this.beHitOut();
-				return;
-			}
+			
+//			if(gjl/this.yingzhi>=2){
+//				this.ztreSet();
+//				this.isBeHitOut = true;
+//				this.beHitOut();
+//				return;
+//			}
 			
 			//			this.body.velocity.y-=300;
 			
 			//被攻击不一定被击退  看硬直属性
 			//加if(瞬间总伤害和>硬直)
 			
-			if(this._isJumping){
+			if(this._isJumping&&_isInAir){
+				this.ztreSet();
+				this.isBeHitOut = true;
+				this.beHitOut();
+				return;
+			}
+			
+			if(this.isBeHitOuting){
+				this.ztreSet();
 				this.isBeHitOut = true;
 				this.beHitOut();
 				return;
@@ -515,23 +529,18 @@ package elements.role
 			
 			
 			if(gjl/this.yingzhi>=1){
+				this.ztreSet();
 				if(this._bodyMc.currentLabel=="beHitOut"){
+					
 					this.isBeHitOut = true;
 					this.beHitOut();
 					
 					return;
 				}
 				this.isBeHiting = true;
-				this._bodyMc.gotoAndPlay(this.beHitAcArr[0]);
+				this._bodyMc.gotoAndPlay(labelBeHit);
 				return;
 			}
-			
-			
-//			this._bodyMc.gotoAndPlay(this.beHitAcArr[0]);
-		}
-		
-		public override function getIsAtking():Boolean{
-			return this.isAtking;
 		}
 		
 		
@@ -555,8 +564,6 @@ package elements.role
 			
 			isRunStop = false;
 			isRunStoping = false;
-			isAtking = false;
-			isJumpAtking = false;
 			this.isCanAtkedMove = false;
 			
 			isCanAtk = false;
@@ -584,6 +591,9 @@ package elements.role
 			_isDongzuo = false;
 			_isDongzuoing = false;
 			
+			
+			acStopNums.mcPlay();
+			
 		}
 		
 		
@@ -604,7 +614,8 @@ package elements.role
 			}
 			this.ztreSet();
 			isStand = true;
-			this._bodyMc.gotoAndPlay("stand");
+			_isInAir = false;
+			this._bodyMc.gotoAndPlay(labelStand);
 		}
 		
 		
@@ -621,7 +632,7 @@ package elements.role
 		private var isRunBegin:Boolean = false;
 		public function runLeft():void{
 			if(zuduan())return;
-			if(!_isJumping&&!_isWalkLefting&&!isRunRight){
+			if(!_isJumping&&!_isWalkLefting&&!isRunRight&&!_isInAir){
 				ztreSet();
 				_isWalkLefting = true;
 				this.body.position.y-=3;
@@ -632,7 +643,7 @@ package elements.role
 			
 			if(this.isRunBegin&&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				this.isRunBegin = false;
-				this._bodyMc.gotoAndPlay("run");
+				this._bodyMc.gotoAndPlay(labelRun);
 				this.isRunStop = true;
 			}
 			
@@ -645,7 +656,7 @@ package elements.role
 		
 		public function runRight():void{
 			if(zuduan())return;
-			if(!_isJumping&&!_isWalkRighting&&!isRunLeft){
+			if(!_isJumping&&!_isWalkRighting&&!isRunLeft&&!_isInAir){
 				ztreSet();
 				_isWalkRighting = true;
 				this.body.position.y-=3;
@@ -655,7 +666,7 @@ package elements.role
 			
 			if(this.isRunBegin&&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				this.isRunBegin = false;
-				this._bodyMc.gotoAndPlay("run");
+				this._bodyMc.gotoAndPlay(labelRun);
 				this.isRunStop = true;
 			}
 			
@@ -673,6 +684,8 @@ package elements.role
 		private var jumpUpBegin:Boolean = false;
 		private var isJumpDown:Boolean = false;
 		
+		private var _inAirFrame:int = 0;
+		
 		public override function jump():void{
 //			if(找到判断起跳时的速度)return;
 			if(zuduan())return;
@@ -687,11 +700,14 @@ package elements.role
 			
 			
 			
-			if(this._bodyMc.currentFrame == this._bodyMc.endFrame){
+			if(this._bodyMc.currentLabel=="jumpUp" &&this._bodyMc.currentFrame == this._bodyMc.endFrame){
 				if(!this.isJumpUp){
 					this.isJumpUp = true;
+					this.body.velocity.y = 0;
 					this.body.velocity.y-=jumpPow;
+					_isInAir = true;
 					jumpUpBegin = false;
+					_inAirFrame = this._bodyMc.endFrame;
 				}
 				this._bodyMc.gotoAndStop(this._bodyMc.endFrame);
 			}
@@ -707,11 +723,10 @@ package elements.role
 				if(this._bodyMc.currentFrame == this._bodyMc.endFrame-1){
 					isJumpDown = false;
 					_isJumping = false;
+					_isInAir = false;
 					this.isJumpUp = false;
 					/**starling 的帧从0开始的*/
 					this._bodyMc.gotoAndStop(this._bodyMc.endFrame);
-					this.isAtking = false;
-					this.isJumpAtking = false;
 				}
 			}
 			
@@ -721,7 +736,7 @@ package elements.role
 		private var _isGedang:Boolean = false;
 		private var _isGedanging:Boolean = false;
 		private function _gedang():void{
-			if(this._isJumping||this.isAtking)return;
+			if(this._isJumping||this._isDongzuoing)return;
 			if(zuduan())return;
 			if(!_isGedang){
 				ztreSet();
@@ -739,6 +754,7 @@ package elements.role
 		{
 			this.isRunRight = false;
 			this.isRunLeft = true;
+			runLeft();
 		}
 		
 		override public function getX():int
@@ -756,6 +772,7 @@ package elements.role
 		{
 			this.isRunRight = true;
 			this.isRunLeft = false;
+			runRight();
 		}
 		
 		override public function removeSelf():void
@@ -766,19 +783,33 @@ package elements.role
 		override public function getPlayFrameOver(num:int = 0,isCZ:Boolean = false):Boolean
 		{
 //			trace(this._bodyMc.currentLabel+"  > "+this._bodyMc.currentFrame+" : "+(this._bodyMc.endFrame-num)+"   end  "+this._bodyMc.endFrame);
-			if(isCZ){
-				gjendNum = num;
-			}else{
-				gjendNum = getGJSZ()["bcf"];
-			}
+//			if(isCZ){
+//				gjendNum = num;
+//			}else{
+//				gjendNum = getJNObj()["bcf"];
+//			}
+			
 			
 			if(this._bodyMc.currentLabel == "stand"){
 				return true;
 			}
+<<<<<<< HEAD
 			if(this.isAtking&&this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
 				this.isAtking = false;
 				return true;
+=======
+			
+			if(zuduan()){
+				return false;
+>>>>>>> origin/master
 			}
+			
+			return !_isDongzuoing;
+			
+//			if(this.isAtking&&this._bodyMc.currentFrame == this._bodyMc.endFrame-gjendNum){
+//				this.isAtking = false;
+//				return true;
+//			}
 			return false;
 		}
 		
@@ -789,9 +820,9 @@ package elements.role
 			super.moveStop();
 		}
 		
-		override public function beHit(vx:Number,cy:Number,gjl:Number):void
+		override public function beHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
-			this.theBeHit(vx,cy,gjl);
+			this.theBeHit(cjvx,cjvy,gjl);
 		}
 		
 		override public function getScaleX():int
@@ -817,12 +848,13 @@ package elements.role
 		
 		
 		
-		
-		override public function getGJSZ():Object{
-			return this.gongjizhaoshiArr[this.cgjNum-1];
+		private var _jinengVO:JinengVO;
+		override public function getJNObj():JinengVO{
+			_jinengVO.getVO(JinengObj[this.gongjizhaoshiArr[this.cgjNum-1]])
+			return _jinengVO;
 		}
 		
-		override public function getGJSZArr():Array
+		override public function getJNObjArr():Array
 		{
 			return this.gongjizhaoshiArr;
 		}
@@ -864,9 +896,14 @@ package elements.role
 			return this.parent.getChildIndex(this);
 		}
 		
-		override public function getTheDongzuo(label:String, DZcbkFNum:int, DZcbk:Function):void
+		override public function getTheDongzuo(label:String, showTXFrameNum:int, DZcbk:Function,DZcanMoveFrame:int=1):void
 		{
-			this.getDongzuo(label, DZcbkFNum, DZcbk);
+			this.getDongzuo(label, showTXFrameNum, DZcbk,DZcanMoveFrame);
+		}
+		
+		override public function getACStopNums(nums:int):void
+		{
+			acStopNums.stopNums(nums,this);
 		}
 		
 		

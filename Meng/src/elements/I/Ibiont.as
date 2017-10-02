@@ -22,7 +22,7 @@ package elements.I
 		function getAlertDistance():int;
 		function isDie():Boolean;
 		function getStop():void;
-		function getGJSZArr():Array;
+		function getJNObjArr():Array;
 		/**
 		 * 
 		 * @param vx  x方向冲力
@@ -30,10 +30,9 @@ package elements.I
 		 * @param gjl  攻击力
 		 * 
 		 */		
-		function beHit(vx:Number,cy:Number,gjl:Number):void;
+		function beHit(cjvx:Number,cjvy:Number,gjl:Number):void;
 		function getIsBeHitOuting():Boolean;
 		function getIsBeHiting():Boolean;
-		function getIsAtking():Boolean;
 		
 		/**停止移动*/
 		function moveStop():void;
@@ -46,7 +45,7 @@ package elements.I
 		 */			
 		function getPlayFrameOver(num:int = 0,isCZ:Boolean = false):Boolean;
 		
-		function getWeight():Number;
+		function getWidth():Number;
 		
 		function theVelocityX(vx:Number):void;
 		function theVelocityY(vy:Number):void;
@@ -64,7 +63,11 @@ package elements.I
 		function getHeight():Number;
 		function getThisChildIndex():int;
 		
+<<<<<<< HEAD
 		function getTheDongzuo(label:String,DZcbkFNum:int,DZcbk:Function):void;
+=======
+		function getTheDongzuo(label:String,showTXFrameNum:int,DZcbk:Function,DZcanMoveFrame:int=1):void;
+>>>>>>> origin/master
 		function getCurrentLabel():String;
 		
 		function getScaleX():int;
@@ -75,6 +78,45 @@ package elements.I
 		function getAction(acName:String):void;
 		
 		function getEnemyArr():Array;
+<<<<<<< HEAD
+=======
+		
+		
+		function bodyMcStop():void;
+		function bodyMcPlay():void;
+		
+		function getShiyingTXScale():Number;
+		
+		function getYingzhi():int;
+		
+		function getJNArrObj():Object;
+		
+		/**
+		 *取到延迟等级 
+		 * @return 
+		 * 
+		 */		
+		function getYanChiDengji():int;
+		
+		function getACStopNums(nums:int):void;
+		
+		function getGJL():int;
+		
+		/**
+		 * 
+		 * @param obj 攻击状态变化的OBJ内容
+		 * 
+		 */		
+		function zhuangtaiChange(obj:Object):void;
+		
+		/**
+		 *取到攻击技能组合类型 
+		 * @return 
+		 * 
+		 */		
+		function getGJType():String;
+		
+>>>>>>> origin/master
 		
 	}
 }

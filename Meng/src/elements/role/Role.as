@@ -35,7 +35,6 @@ package elements.role
 			GetJson.getInstance().getLoad("test.txt",this.cbk);
 			PifuChange.getInstance().getAllPifuChange(mc,GameManager.getInstance().assetMgr,"ww1");
 			BtnEventDispancher.getInstance().addEventListener(BtnEvent.BTN_CLICK,this.onBtn1);
-			
 		}
 		
 		private var gjtx:GJTexiao1;
@@ -66,17 +65,6 @@ package elements.role
 			Tilitiao.getInstance().getRoleTili(this);
 		}
 		
-		protected override function atkAc():void{
-			if(this.getPlayFrameOver()){
-				this.isCanAtk = true;
-			}
-			
-			if(this.getPlayFrameOver()){
-				this.isCanAtkedMove = true;
-			}
-			
-			super.atkAc();
-		}
 		
 		protected override function baseUpDate():void{
 			super.baseUpDate();

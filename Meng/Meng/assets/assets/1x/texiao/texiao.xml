@@ -1,0 +1,16 @@
+<TextureAtlas imagePath="texiao.png">
+  <SubTexture name="img_aj1o4_gjtx" x="603" y="1005" width="146" height="299"/>
+  <SubTexture name="img_aj1o2_gjtx" x="748" y="403" width="170" height="299"/>
+  <SubTexture name="img_aj2o3_gjtx" x="0" y="0" width="512" height="374"/>
+  <SubTexture name="img_tx_atkFC" x="922" y="95" width="51" height="26" frameX="0" frameWidth="52" frameY="0" frameHeight="26"/>
+  <SubTexture name="img_aj1o5_gjtx" x="298" y="745" width="127" height="292"/>
+  <SubTexture name="img_aj2o2_gjtx" x="514" y="0" width="406" height="401"/>
+  <SubTexture name="img_aj1o3_gjtx" x="748" y="704" width="151" height="299"/>
+  <SubTexture name="img_aj1o1_gjtx" x="751" y="1005" width="154" height="272"/>
+  <SubTexture name="img_aj1o6_gjtx" x="901" y="704" width="109" height="266"/>
+  <SubTexture name="img_aj2o5_gjtx" x="0" y="745" width="296" height="321"/>
+  <SubTexture name="img_aj2o4_gjtx" x="0" y="376" width="438" height="367"/>
+  <SubTexture name="img_aj2o6_gjtx" x="427" y="775" width="174" height="273"/>
+  <SubTexture name="img_tilihuifu_qttx" x="922" y="0" width="48" height="93" frameX="0" frameWidth="49" frameY="0" frameHeight="93"/>
+  <SubTexture name="img_aj2o1_gjtx" x="440" y="403" width="306" height="370"/>
+</TextureAtlas>

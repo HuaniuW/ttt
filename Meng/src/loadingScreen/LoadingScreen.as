@@ -1,13 +1,19 @@
 package loadingScreen
 {
 	import com.greensock.TweenLite;
+	
 	import flash.filesystem.File;
+	
 	import controls.GameManager;
+	
 	import gameEvent.GameEvent;
+	
 	import getAssets.GetAsset;
+	
 	import lzm.starling.STLConstant;
 	import lzm.starling.swf.display.SwfScale9Image;
 	import lzm.starling.swf.display.SwfSprite;
+	
 	import starling.display.DisplayObjectContainer;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -130,7 +136,6 @@ package loadingScreen
 		
 		
 		
-		
 		public function show(container:DisplayObjectContainer, urlArr:Array,screenNameEvent:String, bgImgClass:Class=null, bgImgName:String=""):void{
 			if(!urlArr.length)return;
 			view(bgImgClass,bgImgName);
@@ -160,6 +165,7 @@ package loadingScreen
 		private function loadFunc(ratio:Number):void
 		{
 			textfield.text = "" + int(ratio*100)+"%";
+			trace(textfield.text);
 			if(_tiao)_tiao.width  = int(ratio*100)/100*_loadingBar.width-5;
 			if(ratio == 1)
 			{

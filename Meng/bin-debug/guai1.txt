@@ -1,17 +1,33 @@
 {
 		"gongjili":80,
 		"fangyuli":60,
-		"yingzhi":600,
+		"yingzhi":1000,
 		"minSpeed":160,
 		"maxSpeed":360,
+<<<<<<< HEAD
 		"gongjizhaoshiArr":[{"zs":"atk1","vx":500,"vy":0,"cy":800,"texiao":"mc_a1_gjtx","atkjuli":230,"txpy":40,"gjkpy":-10,"gjl":200,"bcf":10},
 		{"zs":"atk2","vx":500,"vy":0,"cy":300,"texiao":"mc_a2_gjtx","atkjuli":230,"txpy":100,"gjkpy":-10,"gjl":200,"bcf":10}],
+=======
+		"gongjizhaoshiArr":["atkg1_1","atkg1_2"],
+>>>>>>> origin/master
 		"jumpPow":990,
-		"maxLive":10000,
+		"maxLive":100000,
 		"jinengArr":[],
 		"gjNum":0,
 		"alertDistance":300,
-		"beHitAcArr":["beHit","beHit2"],
 		"JsonObj":100,
-		"maxTili":100
-		}
+		"maxTili":1000,
+		"shiyingTXScale":1.3,
+		"JNArrObj":{"t1":[{"jinengName":"atkg1_1","jilv1":30,"jilv2":100,"type":"pt"},{"jinengName":["atkg1_1","atkg1_2","atkg1_1","chongjijian"],"jilv1":0,"jilv2":30,"type":"pt"}],
+		"t2":[{"jinengName":"atkg1_1","jilv1":60,"jilv2":100,"type":"pt"},{"jinengName":["atkg1_1","atkg1_2","atkg1_1","chongjijian"],"jilv1":0,"jilv2":60,"type":"pt"}]},
+		"yanchidengji":1,
+		"labelBeHit":"beHit",
+		"labelRun":"run",
+		"labelStand":"stand",
+		"labelAvoid":"avoid",
+		"zhuangtaiqiehuan":
+			{
+				"zhuangtai2":{"xueliang":0.6,"labelRun":"run2","labelStand":"stand2","gongjili":400,"fangyuli":200,"maxSpeed":500,"yingzhi":150,"yanchidengji":5,"GJtype":"t1"},
+				"zhuangtai3":{"xueliang":0.3,"labelRun":"run2","labelStand":"stand2","gongjili":800,"fangyuli":200,"maxSpeed":800,"yingzhi":150,"yanchidengji":10,"GJtype":"t1"}
+			}
+}

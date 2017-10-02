@@ -18,29 +18,29 @@ package elements.texiao
 		private var _objPool:Object = {};
 		
 		
-		public function getOnTexiao(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
+		public function getOnTexiao(txMCName:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
 //			trace("_name "+_name);
-			var texiao:Texiao = getTexiao(_name);
-			texiao.show(_name,role,_x,_y,num);
+			var texiao:Texiao = getTexiao(txMCName);
+			texiao.show(txMCName,role,_x,_y,num);
 		}
 		
-		public function getTexiao(_name:String):Texiao{
-			if(!this._objPool[_name]){
-				this._objPool[_name] = new Array();
+		public function getTexiao(txMCName:String):Texiao{
+			if(!this._objPool[txMCName]){
+				this._objPool[txMCName] = new Array();
 			}
-			if(!(this._objPool[_name] as Array).length){
+			if(!(this._objPool[txMCName] as Array).length){
 				return new Texiao();
 			}else{
-				return ((this._objPool[_name] as Array).shift() as Texiao);
+				return ((this._objPool[txMCName] as Array).shift() as Texiao);
 			}
 		}
 		
-		public function getInPool(_name:String,obj:Texiao):void{
-			if(!_objPool[_name]){
-				_objPool[_name] = new Array();
+		public function getInPool(txMCName:String,obj:Texiao):void{
+			if(!_objPool[txMCName]){
+				_objPool[txMCName] = new Array();
 				
 			}
-			(_objPool[_name] as Array).push(obj);
+			(_objPool[txMCName] as Array).push(obj);
 		}
 		
 		public function dispose():void{

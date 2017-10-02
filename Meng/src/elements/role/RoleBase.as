@@ -6,6 +6,7 @@ package elements.role
 	import elements.I.IElementBase;
 	import elements.I.IHit;
 	import elements.I.Ibiont;
+	import elements.jineng.JinengVO;
 	
 	import lzm.starling.swf.display.SwfImage;
 	import lzm.starling.swf.display.SwfMovieClip;
@@ -35,6 +36,7 @@ package elements.role
 		public var jumpPow:Number = 0;
 		
 		public var gongjizhaoshiArr:Array = [];
+		public var jumpGJArr:Array = [];
 		
 		protected var _isDie:Boolean = false;
 		
@@ -46,7 +48,6 @@ package elements.role
 		
 		public var alertDistance:int = 200;
 		
-		public var beHitAcArr:Array = [];
 		
 		/**重量 硬直*/
 		public var weight:Number = 0;
@@ -71,6 +72,36 @@ package elements.role
 		public var _roleLive:RoleLive;
 		public var _roleTili:RoleTili;
 		
+		public var shiyingTXScale:Number = 1;
+		
+		/**
+		 *攻击类型 数组OBJ  切换时调用 
+		 */		
+		public var JNArrObj:Object;
+		
+		/**
+		 *攻击类型 
+		 */		
+		public var GJtype:String = "t1";
+		
+		/**
+		 *延迟等级 
+		 */		
+		public var yanchidengji:int = 0;
+		
+		public var labelRun:String = "run";
+		public var labelStand:String = "stand";
+		public var labelBeHit:String = "beHit";
+		public var labelAvoid:String = "avoid";
+		
+		/**
+		 *状态切换 切换哪些内容的 OBJ 
+		 */		
+		public var zhuangtaiqiehuan:Object;
+		
+		
+		protected var acStopNums:ACStopNums;
+		
 		
 		protected var enemyArr:Array = [];
 		
@@ -84,6 +115,7 @@ package elements.role
 		}
 		
 		private var shape:Polygon;
+		
 		private function view(_x:Number,_y:Number,_w:Number,_h:Number):void
 		{
 			body = new Body(BodyType.DYNAMIC,new Vec2(_x,_y));
@@ -108,6 +140,18 @@ package elements.role
 			
 		}
 		
+<<<<<<< HEAD
+=======
+		/**
+		 *设置自己 body 和刚体的 Y的误差 
+		 * @param nums
+		 * 
+		 */		
+		protected function setBodyY(nums):void{
+			_bodyMc.pivotY = -_bodyMc.height*0.5+nums;
+		}
+		
+>>>>>>> origin/master
 		public function getEnemyArr():Array
 		{
 			return this.enemyArr;
@@ -160,7 +204,7 @@ package elements.role
 			return 0;
 		}
 		
-		public function getWeight():Number
+		public function getWidth():Number
 		{
 			// TODO Auto Generated method stub
 			return this.weight;
@@ -176,6 +220,7 @@ package elements.role
 		
 		public function theVelocityY(vy:Number):void
 		{
+			this.body.velocity.y = 0;
 			this.body.velocity.y+=vy;
 		}
 		
@@ -198,7 +243,7 @@ package elements.role
 			
 		}
 		
-		public function beHit(vx:Number,cy:Number,gjl:Number):void
+		public function beHit(cjvx:Number,cjvy:Number,gjl:Number):void
 		{
 			// TODO Auto Generated method stub
 			
@@ -256,10 +301,10 @@ package elements.role
 		 * @return 
 		 * 
 		 */		
-		public function getGJSZ():Object
+		public function getJNObj():JinengVO
 		{
 			// TODO Auto Generated method stub
-			return this.gongjizhaoshiArr;
+			return null;
 		}
 		
 		public function theCurLive():Number
@@ -294,13 +339,13 @@ package elements.role
 		public function theCurTili():Number
 		{
 			// TODO Auto Generated method stub
-			return 0;
+			return this._roleTili.curTili;
 		}
 		
 		public function theMaxTili():Number
 		{
 			// TODO Auto Generated method stub
-			return 0;
+			return this._roleTili.maxTili;
 		}
 		
 		public function getRoleLive():RoleLive
@@ -327,7 +372,7 @@ package elements.role
 			
 		}
 		
-		public function getGJSZArr():Array
+		public function getJNObjArr():Array
 		{
 			// TODO Auto Generated method stub
 			return null;
@@ -351,10 +396,67 @@ package elements.role
 			return 0;
 		}
 		
-		public function getTheDongzuo(label:String, DZcbkFNum:int, DZcbk:Function):void
+		public function getTheDongzuo(label:String, showTXFrameNum:int, DZcbk:Function,DZcanMoveFrame:int=1):void
 		{
 			// TODO Auto Generated method stub
 			
+		}
+		
+		public function bodyMcPlay():void
+		{
+			this._bodyMc.play();
+		}
+		
+		public function bodyMcStop():void
+		{
+			this._bodyMc.stop();
+		}
+		
+		public function getShiyingTXScale():Number
+		{
+			return shiyingTXScale;
+		}
+		
+		public function getYingzhi():int
+		{
+			return yingzhi;
+		}
+		
+		public function getJNArrObj():Object
+		{
+			// TODO Auto Generated method stub
+			return JNArrObj;
+		}
+		
+		public function getYanChiDengji():int
+		{
+			// TODO Auto Generated method stub
+			return yanchidengji;
+		}
+		
+		public function getACStopNums(nums:int):void
+		{
+			// TODO Auto Generated method stub
+			
+		}
+		
+		public function getGJL():int
+		{
+			return gongjili;
+		}
+		
+		public function getGJType():String
+		{
+			return this.GJtype;
+		}
+		
+		public function zhuangtaiChange(obj:Object):void
+		{
+			for(var key:String in obj){
+				if(this.hasOwnProperty(key)){
+					this[key] = obj[key];
+				}
+			}
 		}
 		
 		

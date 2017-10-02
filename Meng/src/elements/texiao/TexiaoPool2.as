@@ -26,11 +26,19 @@ package elements.texiao
 		private var _objPool:Object = {};
 		
 		private var _txClassName:String;
+<<<<<<< HEAD
 		public function getOnTexiao(_name:String,role:Ibiont,_x:Number=0,_y:Number=0,num:int=100):void{
 			var obj:Object = JinengObj[_name];
 			_txClassName = obj["className"];
 			var gjtx:DisplayObject = getTexiao(obj["txName"]);
 			gjtx["getSJObj"](obj,role);
+=======
+		public function getOnTexiao(_name:String,role:Ibiont,cbk=null,isYanChi:Boolean = true,_x:Number=0,_y:Number=0,num:int=100):void{
+			var obj:Object = JinengObj[_name];
+			_txClassName = obj["className"];
+			var gjtx:DisplayObject = getTexiao(obj["jnName"]);
+			gjtx["getSJObj"](obj,role,cbk,isYanChi);
+>>>>>>> origin/master
 		}
 		
 		public function getTexiao(_name:String):DisplayObject{
@@ -39,11 +47,19 @@ package elements.texiao
 			}
 			if(!(this._objPool[_name] as Array).length){
 				var mcClassName:String = "elements.texiao"+"::"+_txClassName;
+<<<<<<< HEAD
 				trace("mc>> "+mcClassName);
 				var McClass:Class = getDefinitionByName(mcClassName) as Class;
 				return new McClass();
 			}else{
 				trace("取对象池的 对象 _name  "+_name);
+=======
+//				trace("mc>>>>>>>>>>>>>>>>>>>>>>>>>>>>     "+mcClassName);
+				var McClass:Class = getDefinitionByName(mcClassName) as Class;
+				return new McClass();
+			}else{
+//				trace("取对象池的 对象 _name  "+_name);
+>>>>>>> origin/master
 				return ((this._objPool[_name] as Array).shift());
 			}
 		}
